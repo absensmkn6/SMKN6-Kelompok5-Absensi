@@ -47,7 +47,7 @@ const DashboardAdmin = () => {
 
             </div>
             <div class="text-right">
-              <p class="text-2xl">Absen Hari ini</p>
+              <p class="text-2xl">Absen Hari iniI</p>
               <span class="text-sm font-bold leading-normal text-emerald-500">95 Murid</span>
             </div>
           </div>
