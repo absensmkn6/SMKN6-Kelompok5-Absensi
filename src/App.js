@@ -18,19 +18,21 @@ import SidebarAdmin from "./sidebar/sidebaradmin";
 import DashboardSiswa from "./siswa/dashboard"
 import ProfileSiswa from "./siswa/profile"
 import AbsenSiswa from "./siswa/absen"
+import LogoutSiswa from "./siswa/logout"
 
 //GURU
 import RekapGuru from "./guru/rekapguru"
 import ProfileGuru from "./guru/profile"
 import DashboardGuru from "./guru/dashboard"
+import LogoutGuru from "./guru/logout"
 
 //ADMIN
-
 import DashboardAdmin from "./admin/dashboard";
 import DataSiswa from "./admin/data/siswa";
 import DataKelas from "./admin/data/kelas";
 import DataGuru from "./admin/data/guru";
 import RekapAdmin from "./admin/rekap";
+import LogoutAdmin from "./admin/logout";
 
 
 function App(){
@@ -49,6 +51,7 @@ function App(){
           <Route component={SidebarSiswa} path="/sidebar/sidebarsiswa" />
           <Route component={ProfileSiswa} path="/siswa/profile" />
           <Route component={AbsenSiswa} path="/siswa/absen" />
+          <Route component={LogoutSiswa} path="/siswa/logout" />
 
 
           {/* GURU */}
@@ -56,6 +59,7 @@ function App(){
           <Route component={RekapGuru} path="/guru/rekapguru" />
           <Route component={ProfileGuru} path="/guru/profile" />
           <Route component={DashboardGuru} path="/guru/dashboard" />
+          <Route component={LogoutGuru} path="/guru/logout" />
 
 
           {/* ADMIN */}
@@ -64,7 +68,8 @@ function App(){
           <Route component={DataSiswa} path="/admin/datas" />
           <Route component={DataKelas} path="/admin/kelas" />
           <Route component={DataGuru} path="/admin/guru" />
-          <Route component={RekapAdmin} path="/rekapadmin" />
+          <Route component={RekapAdmin} path="/admin/rekap" />
+          <Route component={LogoutAdmin} path="/admin/logout" />
 
         </Switch>
       </BrowserRouter>

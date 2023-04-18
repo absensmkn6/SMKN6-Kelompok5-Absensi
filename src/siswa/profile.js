@@ -42,35 +42,28 @@ const ProfileSiswa = () => {
          
                 <div class="bg-violet-700 dark:bg-gray-800 p-3 hover:shadow border-white rounded-md">
 
-                    <div class="flex items-center space-x-3 font-semibold text-white text-xl leading-8">
-                        <span class="text-green-500">
-                            <svg class="h-5 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                            </svg>
-                        </span>
-                        <span>Guru</span>
-                    </div>
-                    <div className="avatar-group -space-x-6">
-                    <div className="avatar">
-                        <div className="w-12">
-                        <img src={guru1} />
-                        </div>
-                    </div>
-                    <div className="avatar">
-                        <div className="w-12">
-                        <img src={guru2} />
-                        </div>
-                    </div>
-                    <div className="avatar">
-                        <div className="w-12">
-                        <img src={guru1} />
-                        </div>
-                    </div>
-                    <div className="avatar">
-                        <div className="w-12">
-                        <img src={guru2} />
+
+                    {/* The button to open modal */}
+                    <label htmlFor="my-modal" className="btn bg-violet-700 dark:bg-gray-800 p-3 hover:shadow border-white rounded-md">Username dan password</label>
+
+                    {/* Put this part before </body> tag */}
+                    <input type="checkbox" id="my-modal" className="modal-toggle" />
+                    <div className="modal">
+                    <div className="modal-box">
+                    <form>
+                                            <div class="card-body">
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly value={'17058'} />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
+                                                <input type="text" value={'17058'} className="input input-bordered mt-2 input-primary w-full max-w"readOnly />
+                                            </div>
+                                    </div>
+                            </form>
+                        <div className="modal-action">
+                        <label htmlFor="my-modal" className="btn">Tutup</label>
                         </div>
                     </div>
                     </div>
@@ -94,37 +87,37 @@ const ProfileSiswa = () => {
                     <div class="text-gray-400">
                         <div class="grid md:grid-cols-2 text-sm">
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Nama Panggilan</div>
-                                <div class="px-4 py-2">Nama Pangilan Siswa</div>
+                                <div class="px-4 py-2 font-semibold">Nama Panggilan:</div>
+                                <div class="px-4 py-2">Nama Panggilan Siswa</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Nama Lengkap</div>
+                                <div class="px-4 py-2 font-semibold">Nama Lengkap:</div>
                                 <div class="px-4 py-2">Nama Lengkap Siswa</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Nomor Induk</div>
+                                <div class="px-4 py-2 font-semibold">Nomor Induk:</div>
                                 <div class="px-4 py-2">10983</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Kelas</div>
+                                <div class="px-4 py-2 font-semibold">Kelas:</div>
                                 <div class="px-4 py-2">XI-RPL</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Jenis Kelamin</div>
+                                <div class="px-4 py-2 font-semibold">Jenis Kelamin:</div>
                                 <div class="px-4 py-2">cwk</div>
                             </div>
             
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">TTL</div>
-                                <div class="px-4 py-2">01/03/2006</div>
+                                <div class="px-4 py-2 font-semibold">TTL:</div>
+                                <div class="px-4 py-2">Solo, 01 januari 2006</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Alamat</div>
+                                <div class="px-4 py-2 font-semibold">Alamat:</div>
                                 <div class="px-4 py-2">jalan...</div>
                             </div>
                            
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Telepon</div>
+                                <div class="px-4 py-2 font-semibold">Telepon:</div>
                                 <div class="px-4 py-2">+62-856</div>
                             </div>
                         </div>

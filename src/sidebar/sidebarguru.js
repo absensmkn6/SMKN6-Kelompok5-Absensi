@@ -33,12 +33,6 @@ const SidebarGuru = () => {
                         Guru
                     </a>
                 </li>
-                <li>
-                    <div class = "flex items-center">
-                        <svg class = "w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"></path></svg>
-                        <a href="../guru/dashboard" class = "ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Dashboard</a>
-                    </div>
-                </li>
             </ol>
         </nav>
     <ul class="flex items-center">
@@ -116,7 +110,7 @@ const SidebarGuru = () => {
             </a>
           </li>
           <li>
-            <a href="/login" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+            <a href="../guru/logout" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
               <span class="inline-flex justify-center items-center ml-4">
               <FontAwesomeIcon icon={faSignOutAlt} className="w-5 h-5" />
               </span>

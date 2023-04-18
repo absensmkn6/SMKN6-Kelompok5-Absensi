@@ -1,17 +1,17 @@
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import SidebarSiswa from "../sidebar/sidebarsiswa"
+import SidebarAdmin from "../sidebar/sidebaradmin"
 
 
-export default function LogoutSiswa() {
+export default function LogoutAdmin() {
   const [open, setOpen] = useState(true)
 
   const cancelButtonRef = useRef(null)
 
   return (
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-    <SidebarSiswa/>
+    <SidebarAdmin/>
     <Transition.Root show={open} as={Fragment}>
       <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
         <Transition.Child
@@ -66,7 +66,7 @@ export default function LogoutSiswa() {
                     <button
                         type="button"
                         className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                        onClick={() => window.location.href = '/siswa/dashboard'}
+                        onClick={() => window.location.href = '/admin/dashboard'}
                         ref={cancelButtonRef}
                     >
                         Batal
