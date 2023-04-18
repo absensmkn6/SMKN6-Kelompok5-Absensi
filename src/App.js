@@ -33,6 +33,7 @@ import DataKelas from "./admin/data/kelas";
 import DataGuru from "./admin/data/guru";
 import RekapAdmin from "./admin/rekap";
 import LogoutAdmin from "./admin/logout";
+import CreateSiswa from "./admin/data/siswa/create";
 
 
 function App(){
@@ -70,6 +71,7 @@ function App(){
           <Route component={DataGuru} path="/admin/guru" />
           <Route component={RekapAdmin} path="/admin/rekap" />
           <Route component={LogoutAdmin} path="/admin/logout" />
+          <Route component={CreateSiswa} path="/create" />
 
         </Switch>
       </BrowserRouter>

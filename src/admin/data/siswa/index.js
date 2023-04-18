@@ -4,6 +4,7 @@ import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faScho
 import SidebarAdmin from "../../../sidebar/sidebaradmin";
 import axios from "axios";
 import { useEffect } from "react";  
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 
 const DataSiswa = () => {
@@ -70,7 +71,7 @@ const[DataSiswa, setDataSiswa] = useState([])
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Siswa</h3>
-                  <label htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</label>
+                  <Link to="/create" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</Link>
                 </div>
                 
               </div>
@@ -91,20 +92,10 @@ const[DataSiswa, setDataSiswa] = useState([])
                     </tr>
                   </thead>
                   <tbody>
-                    {/* {
-                      DataSiswa.map((data, i)=>
-                      <tr key={i}>
-                        <td>{data.nis}</td>
-                        <td>{data.nama}</td>
-                        <td>{data.ttl}</td>
-                        <td>{data.kelas}</td>
-                        <td>{data.alamat}</td>
-                        <td>{data.gender}</td>
-                        <td>{data.nohp}</td>
-                      </tr>)
-                    } */}
                     {/* ini modal tambah data */}
                     <div>
+
+
                         <input type="checkbox" id="modalTambah" className="modal-toggle" />
                             <div className="modal">
                                 <div className="modal-box relative">
@@ -287,7 +278,7 @@ const[DataSiswa, setDataSiswa] = useState([])
                         </div>
                     </div>
 
-{/* ini modal hapus */}
+                    {/* ini modal hapus */}
                     <div>
                         <input type="checkbox" id="modalHapus" className="modal-toggle" />
                             <div className="modal">
@@ -397,166 +388,6 @@ const[DataSiswa, setDataSiswa] = useState([])
                         </td>
                     </tr>)
                     }
-                    {/* <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1002</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Alya Cheva Azahra</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Boyolali, 03 November 2006</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Boyolali</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Alya</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Alya</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1003</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Francisco Destaliano Putra Sadewa</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Karanganyar, 30 Desember 2004</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Karanganyar</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Francisco</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Francisco</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1004</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Indar Dwi Pramesthi</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta, 14 Juli 2006</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Indar</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Indar</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1005</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Luthfiya Zuhura Syifa Fuadah</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Yogyakarka, 13 November 2006</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Sukoharjo</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Luthfiya</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Luthfiya</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1006</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Mentari Dwi Prastiwi</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Sukoharjo, 19 Maret 2006</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Sukoharjo</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Mentari</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Mentari</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1007</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Riyo Pradana Navigasi Firdaus</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta, 04 Juni 2006</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Riyo</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Riyo</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1008</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Samuel Yudi Prayitno</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta, 20 Juni 2006</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Samuel</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Samuel</td>
-
-
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                                 <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr> */}
                   </tbody>
                 </table>
               </div>
