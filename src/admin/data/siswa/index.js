@@ -74,8 +74,10 @@ const DataSiswa = () => {
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">TTL</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Kelas</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Alamat</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Gender</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Jenis Kelamin</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">No.Telp</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Username</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Password</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
                     </tr>
                   </thead>
@@ -92,35 +94,48 @@ const DataSiswa = () => {
                                             <div class="card-body">
                                             <div class="form-group">
                                                 <label>NIS</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={''} />
+                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={''} placeholder="Masukkan NIS Siswa" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Nama</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Nama Lengkap"/>
                                             </div>
                                             <div class="form-group">
                                                 <label>TTL</label><br></br>
-                                                <input type="date" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tempat Tanggal Lahir" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Kelas</label><br></br>
                                                 <select className="select select-primary w-full max-w mt-2">
-                                                    <option disabled selected>{''}</option>
+                                                <option disabled selected>Pilih Kelas</option>
+                                                    <option>X</option>
+                                                    <option>XI</option>
+                                                    <option>XII</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Alamat</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat"/>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gender</label><br></br>
+                                                <label>Jenis Kelamin</label><br></br>
                                                 <select className="select select-primary w-full max-w mt-2">
-                                                    <option disabled selected>{''}</option>
+                                                <option disabled selected>Pilih Jenis Kelamin</option>
+                                                    <option>Laki-Laki</option>
+                                                    <option>Perempuan</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>No.Telp</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan No.Telp" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Username" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Password"/>
                                             </div>
                                     </div>
         
@@ -151,7 +166,7 @@ const DataSiswa = () => {
                                             </div>
                                             <div class="form-group">
                                                 <label>TTL</label><br></br>
-                                                <input type="date" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Kelas</label><br></br>
@@ -162,13 +177,22 @@ const DataSiswa = () => {
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Gender</label><br></br>
+                                                <label>Jenis Kelamin</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
                                             </div>
                                             <div class="form-group">
                                                 <label>No.Telp</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
                                             </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+
                                     </div>
         
                                 <div class="card-footer">
@@ -198,12 +222,15 @@ const DataSiswa = () => {
                                             </div>
                                             <div class="form-group">
                                                 <label>TTL</label><br></br>
-                                                <input type="date" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Kelas</label><br></br>
                                                 <select className="select select-warning w-full max-w mt-2">
-                                                    <option disabled selected>{''}</option>
+                                                <option disabled selected>Pilih Kelas</option>
+                                                    <option>X</option>
+                                                    <option>XI</option>
+                                                    <option>XII</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -211,66 +238,29 @@ const DataSiswa = () => {
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Gender</label><br></br>
+                                                <label>Jenis Kelamin</label><br></br>
                                                 <select className="select select-warning w-full max-w mt-2">
-                                                    <option disabled selected>{''}</option>
+                                                <option disabled selected>Pilih Jenis Kelamin</option>
+                                                    <option>Laki-Laki</option>
+                                                    <option>Perempuan</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>No.Telp</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
-                                    </div>
-        
-                                <div class="card-footer">
-                                <button type="submit" class="btn btn-warning"> Edit </button>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* ini modal (?) */}
-                    <div>
-                        <input type="checkbox" id="modalEdit" className="modal-toggle" />
-                            <div className="modal">
-                                <div className="modal-box relative">
-                                    <label htmlFor="modalEdit" className="btn btn-sm btn-square absolute right-2 top-2">✕</label>
-                                    <h3 className="text-lg font-bold">Edit Siswa</h3>
-                                    <form>
-                                            <div class="card-body">
                                             <div class="form-group">
-                                                <label>NIS hps</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-warning w-full max-w" value={''} />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Nama</label><br></br>
+                                                <label>Username</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                             <div class="form-group">
-                                                <label>TTL</label><br></br>
-                                                <input type="date" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kelas</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Alamat</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Gender</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>No.Telp</label><br></br>
+                                                <label>Password</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                     </div>
         
                                 <div class="card-footer">
-                                <button type="submit" class="btn btn-warning">Edit</button>
+                                <button type="submit" class="btn btn-warning"> Update </button>
                                 </div>
                             </form>
                             </div>
@@ -296,7 +286,7 @@ const DataSiswa = () => {
                                             </div>
                                             <div class="form-group">
                                                 <label>TTL</label><br></br>
-                                                <input type="date" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Kelas</label><br></br>
@@ -307,11 +297,19 @@ const DataSiswa = () => {
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Gender</label><br></br>
+                                                <label>Jenis Kelamin</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
                                             </div>
                                             <div class="form-group">
                                                 <label>No.Telp</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
                                             </div>
                                     </div>
@@ -346,7 +344,6 @@ const DataSiswa = () => {
                                                 </select>
                                             </div>
                                     </div>
-        
                                 <div class="card-footer">
                                 <button type="submit" class="btn bg-red-600 text-white">Delete</button>
                                 </div>
@@ -354,6 +351,7 @@ const DataSiswa = () => {
                             </div>
                         </div>
                     </div>
+
                     <tr class="text-gray-700 dark:text-gray-100">
                       <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1001</th>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Thoriq Muhammad Hanif Raihan</td>
@@ -362,6 +360,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Boyolali</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Thoriq</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Thoriq</td>
+                      
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -381,6 +382,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Boyolali</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Alya</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Alya</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -401,6 +405,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Karanganyar</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Francisco</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Francisco</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -421,6 +428,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Indar</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Indar</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -441,6 +451,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Sukoharjo</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Luthfiya</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Luthfiya</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -461,6 +474,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Sukoharjo</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Mentari</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Mentari</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -481,6 +497,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Riyo</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Riyo</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
@@ -501,6 +520,9 @@ const DataSiswa = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Surakarta</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">085*******</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Samuel</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Samuel</td>
+
 
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">

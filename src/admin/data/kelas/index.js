@@ -153,21 +153,25 @@ const DataKelas = () => {
                             <div className="modal">
                                 <div className="modal-box relative">
                                     <label htmlFor="modalDetail" className="btn btn-sm btn-square absolute right-2 top-2">✕</label>
-                                    <h3 className="text-lg font-bold">Kelas Siswa</h3>
+                                    <h3 className="text-lg font-bold">Detail Kelas </h3>
                                         <form>
                                             <div class="card-body">
                                             <div class="form-group">
                                                 <label>Kelas</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={''} />
+                                                <input type="text" className="input input-bordered mt-2 input-info w-full max-w" value={''} />
                                             </div>
                                             <div class="form-group">
                                                 <label>Jurusan</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jumlah Siswa</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
                                             </div>
                                     </div>
         
                                 <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Ok</button>
+                                <button type="submit" class="btn btn-info">Ok</button>
                                 </div>
                             </form>
                             </div>
@@ -183,17 +187,21 @@ const DataKelas = () => {
                                             <div class="card-body">
                                             <div class="form-group">
                                                 <label>Kelas</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={''} />
+                                                <input type="text" className="input input-bordered mt-2 input-warning w-full max-w" value={''} />
                                             </div>
                                             <div class="form-group">
                                                 <label>Jurusan</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jumlah Siswa</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                             
                                     </div>
         
                                 <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-warning">Update</button>
                                 </div>
                             </form>
                             </div>
@@ -215,10 +223,14 @@ const DataKelas = () => {
                                                 <label>Jurusan</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
                                             </div>
+                                            <div class="form-group">
+                                                <label>Jumlah Siswa</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
                                     </div>
         
                                 <div class="card-footer">
-                                <button type="submit" class="btn bg-red-600 text-white">Delete</button>
+                                <button type="submit" class="btn btn-error">Delete</button>
                                 </div>
                             </form>
                             </div>

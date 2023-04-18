@@ -69,13 +69,15 @@ const DataGuru = () => {
                 <table class="items-center w-full bg-transparent border-collapse">
                   <thead>
                     <tr>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">ID Guru</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">NUPTK</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Nama</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Mapel</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Gender</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Jenis Kelamin</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">TTL</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Alamat</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">No.Telp</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Username</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Password</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
                     </tr>
                   </thead>
@@ -88,6 +90,9 @@ const DataGuru = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1995/04/11</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> Surakarta </td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> 085******* </td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Binar</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Binar</td>
+
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
                           <div class="relative w-full">
@@ -106,6 +111,8 @@ const DataGuru = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1980/07/23</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> Surakarta </td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> 085******* </td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Arif</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Arif</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
                           <div class="relative w-full">
@@ -124,6 +131,8 @@ const DataGuru = () => {
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1994/03/09</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> Surakarta </td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> 085******* </td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Ratnawati</td>
+                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Ratnawati</td>
                       <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                         <div class="flex items-center">
                           <div class="relative w-full">
@@ -152,13 +161,32 @@ const DataGuru = () => {
                                                 <input type="text" placeholder="Masukkan Nama Lengkap" className="input input-bordered mt-2 input-primary w-full max-w" />
                                             </div>
                                             <div class="form-group">
-                                            <label>Kelas</label><br></br>
+                                                <label>Jenis Kelamin</label><br></br>
                                                 <select className="select select-primary w-full max-w mt-2">
-                                                    <option disabled selected>Pilih Kelas</option>
-                                                    <option>X RPL</option>
-                                                    <option>XI RPL</option>
-                                                    <option>XII RPL</option>
+                                                <option disabled selected>Pilih Jenis Kelamin</option>
+                                                    <option>Laki-Laki</option>
+                                                    <option>Perempuan</option>
                                                 </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TTl</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tempat Tanggal Lahir"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No.Telp</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan No.Telp"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Username"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Password"/>
                                             </div>
                                     </div>
         
@@ -179,20 +207,40 @@ const DataGuru = () => {
                                             <div class="card-body">
                                             <div class="form-group">
                                                 <label>NUPTK</label><br></br>
-                                                <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={''} />
+                                                <input type="number" className="input input-bordered mt-2 input-info w-full max-w" value={''} />
                                             </div>
                                             <div class="form-group">
                                                 <label>Nama</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={''} />
+                                                <input type="text" className="input input-bordered mt-2 input-info w-full max-w" value={''} />
                                             </div>
                                             <div class="form-group">
-                                                <label>Kelas</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
+                                                <label>Jenis Kelamin</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TTL</label><br></br>
+                                                <input type="twxt" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No.Telp</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-info w-full max-w" />
                                             </div>
                                     </div>
         
                                 <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Ok</button>
+                                <button type="submit" class="btn btn-info">Ok</button>
                                 </div>
                             </form>
                             </div>
@@ -207,27 +255,46 @@ const DataGuru = () => {
                                         <form>
                                             <div class="card-body">
                                             <div class="form-group">
+                                                <label>NUPTK</label><br></br>
+                                                <input type="text" className="input input-bordered mt-2 input-warning w-full max-w" value={''} />
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Nama</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={''} />
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Kelas</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                            <label>Kelas</label><br></br>
-                                                <select className="select select-primary w-full max-w mt-2">
-                                                    <option disabled selected>{''}</option>
-                                                    <option>X RPL</option>
-                                                    <option>XI RPL</option>
-                                                    <option>XII RPL</option>
+                                                <label>Jenis Kelamin</label><br></br>
+                                                <select className="select select-warning w-full max-w mt-2">
+                                                <option disabled selected>Pilih Jenis Kelamin</option>
+                                                    <option>Laki-Laki</option>
+                                                    <option>Perempuan</option>
                                                 </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TTL</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No.Telp</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-warning w-full max-w" />
                                             </div>
                                             
                                     </div>
         
                                 <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-warning">Update</button>
                                 </div>
                             </form>
                             </div>
@@ -247,6 +314,30 @@ const DataGuru = () => {
                                             </div>
                                             <div class="form-group">
                                                 <label>Nama</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Jenis Kelamin</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>TTL</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Alamat</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No.Telp</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Username</label><br></br>
+                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Password</label><br></br>
                                                 <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
                                             </div>
                                     </div>
