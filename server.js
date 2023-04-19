@@ -14,24 +14,45 @@ const db = mysql.createConnection({
 
 })
 
-app.get("/", (req, res)=> {
-    const sql = "SELECT * FROM siswa";
+// app.get("/", (req, res)=> {
+//     const sql = "SELECT * FROM siswa";
+//     db.query(sql, (err, data) => {
+//         if(err) return res.json("error");
+//         return res.json(data);
+//     })
+// })
+
+app.get("/admin/datas", (req, res)=> {
+    const sql = "SELECT * FROM coba";
     db.query(sql, (err, data) => {
         if(err) return res.json("error");
         return res.json(data);
     })
 })
 
+// app.post('/create', (req, res)=>{
+//     const sql = "INSERT INTO siswa ('nis','nama','ttl','kelas', 'jurusan','alamat','gender','nohp',) VALUES (?)";
+//     const values = [
+//         req.body.nis,
+//         req.body.nama,
+//         req.body.ttl,
+//         req.body.kelas,
+//         req.body.jurusan,
+//         req.body.alamat,
+//         req.body.gender,
+//         req.body.nohp
+//     ] 
+//     db.query(sql, [values], (err, data)=>{
+//         if(err) return res.json("error");
+//         return res.json(data);
+//     })                        
+// })
+
 app.post('/create', (req, res)=>{
-    const sql = "INSERT INTO siswa ('nis','nama','ttl','kelas','alamat','gender','nohp',) VALUES (?)";
+    const sql = "INSERT INTO coba ('nis','nama') VALUES (?)";
     const values = [
         req.body.nis,
         req.body.nama,
-        req.body.ttl,
-        req.body.kelas,
-        req.body.alamat,
-        req.body.gender,
-        req.body.nohp
     ] 
     db.query(sql, [values], (err, data)=>{
         if(err) return res.json("error");
