@@ -14,33 +14,80 @@ const db = mysql.createConnection({
 
 })
 
-// app.get("/", (req, res)=> {
-//     const sql = "SELECT * FROM siswa";
-//     db.query(sql, (err, data) => {
-//         if(err) return res.json("error");
-//         return res.json(data);
-//     })
-// })
 
-app.get("/admin/datas", (req, res)=> {
-    const sql = "SELECT * FROM coba";
+app.get("/", (req, res)=> {
+    const sql = "SELECT * FROM siswa";
     db.query(sql, (err, data) => {
         if(err) return res.json("error");
         return res.json(data);
     })
 })
 
+
+app.post('/create', (req, res)=>{
+    const sql = "INSERT INTO siswa (`nis`,`nama`, `kelas`,`alamat`,`nohp`) VALUES (?)";
+    const values = [
+        req.body.nis,
+        req.body.nama,
+        req.body.kelas,
+        req.body.alamat,
+        req.body.nohp
+        // req.body.jurusan,
+        // req.body.ttl,
+        // req.body.gender,
+    ] 
+    const id = req.params.id;
+    db.query(sql, [values], (err, data)=>{
+        if(err) return res.json("error");
+        return res.json(data);
+    })                        
+})
+app.put('/update/:id', (req, res)=>{
+    const sql = "update siswa set `nama` = ?, `kelas` = ?, `alamat` = ?, `nohp` = ? where id = ? ";
+    const id = req.params.id
+        
+        // req.body.jurusan,
+        // req.body.ttl,
+        // req.body.gender,
+    db.query(sql, [ req.body.nama, req.body.kelas, req.body.alamat, req.body.nohp, id], (err, result)=>{
+        if(err) return res.json("error");
+        return res.json({updated: true});
+    })                        
+})
+
+app.get("/update/:id", (req, res)=> {
+    const sql = "SELECT * FROM siswa where id = ?";
+    const id = req.params.id
+    db.query(sql, [id], (err, result) => {
+        if(err) return res.json("error");
+        return res.json(result);
+    })
+})
+
+app.delete('/index/:id', (req,res)=>{
+    const sql = "DELETE FROM siswa where id = ? ";
+    const id = req.params.id;
+
+    db.query(sql, [id], (err,data)=>{
+        if(err) return res.json("error");
+        return res.json(data);
+    })
+})
+
+
+// app.get("/", (req, res)=> {
+//     const sql = "SELECT * FROM coba";
+//     db.query(sql, (err, data) => {
+//         if(err) return res.json("error");
+//         return res.json(data);
+//     })
+// })
+
 // app.post('/create', (req, res)=>{
-//     const sql = "INSERT INTO siswa ('nis','nama','ttl','kelas', 'jurusan','alamat','gender','nohp',) VALUES (?)";
+//     const sql = "INSERT INTO coba (`nis`,`nama`) VALUES (?)";
 //     const values = [
 //         req.body.nis,
 //         req.body.nama,
-//         req.body.ttl,
-//         req.body.kelas,
-//         req.body.jurusan,
-//         req.body.alamat,
-//         req.body.gender,
-//         req.body.nohp
 //     ] 
 //     db.query(sql, [values], (err, data)=>{
 //         if(err) return res.json("error");
@@ -48,18 +95,8 @@ app.get("/admin/datas", (req, res)=> {
 //     })                        
 // })
 
-app.post('/create', (req, res)=>{
-    const sql = "INSERT INTO coba ('nis','nama') VALUES (?)";
-    const values = [
-        req.body.nis,
-        req.body.nama,
-    ] 
-    db.query(sql, [values], (err, data)=>{
-        if(err) return res.json("error");
-        return res.json(data);
-    })                        
-})
-
 app.listen(8081, () => {
     console.log("listening");
 })
+
+

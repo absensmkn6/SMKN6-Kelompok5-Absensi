@@ -5,6 +5,8 @@ import SidebarAdmin from "../../../sidebar/sidebaradmin";
 import axios from "axios";
 import { useEffect } from "react";  
 import { Link } from "react-router-dom/cjs/react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 
 const DataSiswa = () => {
@@ -16,6 +18,23 @@ const[DataSiswa, setDataSiswa] = useState([])
       .then(res => setDataSiswa(res.data))
       .catch(err => console.log(err));
   }, [])
+
+  const handleDelete = async (id) => {
+    // setShow(true)
+    try {
+        await axios.delete('http://localhost:8081/index/'+id)
+        window.location.reload()
+    }catch(err){
+        console.log(err);
+    }
+  }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () =>{
+    setShow(false)
+  }
+
   return (
 
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
@@ -93,6 +112,34 @@ const[DataSiswa, setDataSiswa] = useState([])
                     </tr>
                   </thead>
                   <tbody>
+
+                  {
+                    DataSiswa.map((data, i)=>
+                      <tr key={i} class="text-gray-700 dark:text-gray-100">
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{data.nis}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nama}</td>
+                        {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.ttl}</td> */}
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.kelas}</td>
+                        {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.jurusan}</td> */}
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.alamat}</td>
+                        {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.gender}</td> */}
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nohp}</td>
+                        {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Thoriq</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Thoriq</td> */}
+                        
+
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <div class="flex items-center">
+                            <div class="relative w-full">
+                              <Link to="/show" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
+                              <Link to={`/update/${data.id}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</Link>
+                              <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => handleDelete(data.id)}>Hapus</button>
+                            </div>
+                          </div>
+                        </td>
+                    </tr>)
+                    }
+
                     {/* ini modal tambah data */}
                     <div>
 
@@ -280,116 +327,22 @@ const[DataSiswa, setDataSiswa] = useState([])
                     </div>
 
                     {/* ini modal hapus */}
-                    <div>
-                        <input type="checkbox" id="modalHapus" className="modal-toggle" />
-                            <div className="modal">
-                                <div className="modal-box relative">
-                                    <label htmlFor="modalHapus" className="btn btn-sm btn-square absolute right-2 top-2">✕</label>
-                                    <h3 className="text-lg font-bold">Yakin ingin hapus data ini?</h3>
-                                    <form>
-                                            <div class="card-body">
-                                            <div class="form-group">
-                                                <label>NIS</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-error w-full max-w" value={''} />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Nama</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>TTL</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kelas</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Alamat</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Jenis Kelamin</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>No.Telp</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Username</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Password</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                    </div>
-        
-                                <div class="card-footer">
-                                <button type="submit" class="btn btn-error">Hapus</button>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <input type="checkbox" id="modalHapus" className="modal-toggle" />
-                            <div className="modal">
-                                <div className="modal-box relative">
-                                    <label htmlFor="modalHapus" className="btn btn-sm btn-square absolute right-2 top-2">✕</label>
-                                    <h3 className="text-lg font-bold">Yakin ingin hapus data ini?</h3>
-                                        <form>
-                                            <div class="card-body">
-                                            <div class="form-group">
-                                                <label>NIS</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-error w-full max-w" value={''} />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Nama</label><br></br>
-                                                <input type="text" value={''} className="input input-bordered mt-2 input-error w-full max-w" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Kelas</label><br></br>
-                                                <select className="select select-error w-full max-w mt-2">
-                                                    <option disabled selected>{''}</option>
-                                                </select>
-                                            </div>
-                                    </div>
-                                <div class="card-footer">
-                                <button type="submit" class="btn bg-red-600 text-white">Delete</button>
-                                </div>
-                            </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    {
-                    DataSiswa.map((data, i)=>
-                      <tr key={i} class="text-gray-700 dark:text-gray-100">
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{data.nis}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nama}</td>
-                        {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.ttl}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.kelas}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.jurusan}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.alamat}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.gender}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nohp}</td> */}
-                        {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Thoriq</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Thoriq</td> */}
-                        
-
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          <div class="flex items-center">
-                            <div class="relative w-full">
-                              <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                              <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                              <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                            </div>
-                          </div>
-                        </td>
-                    </tr>)
-                    }
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Hapus Data</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Yakin ingin hapus data?</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={handleClose}>
+                                    Close
+                                </Button>
+                                <Button variant="primary" onClick={handleClose}>
+                                    Delete
+                                </Button>
+                            </Modal.Footer>
+                    </Modal>
+                    
+                    
                   </tbody>
                 </table>
               </div>
