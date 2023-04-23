@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import SidebarAdmin from "../../../sidebar/sidebaradmin";
+import axios from "axios";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 
 
 const DataGuru = () => {
+
+  const[DataGuru, setDataGuru] = useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8081/guru/')
+    .then(res => setDataGuru(res.data))
+    .catch(err => console.log(err));
+}, [])
+
+const handleDelete = async (id_guru) => {
+  try {
+      await axios.delete('http://localhost:8081/guru/'+id_guru)
+      window.location.reload()
+  }catch(err){
+      console.log(err);
+  }
+}
+
   return (
 
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
@@ -61,7 +81,7 @@ const DataGuru = () => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Guru</h3>
-                  <label htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Guru</label>
+                  <Link to="/createg" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Guru</Link>
                 </div>
                 
               </div>
@@ -71,80 +91,39 @@ const DataGuru = () => {
                     <tr>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">NUPTK</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Nama</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Mapel</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Jenis Kelamin</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">TTL</th>
+                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Mapel</th> */}
+                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Jenis Kelamin</th> */}
+                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">TTL</th> */}
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Alamat</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">No.Telp</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Username</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Password</th>
+                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Username</th> */}
+                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Password</th> */}
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Binar Aris Purwaka</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Kejuruan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1995/04/11</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> Surakarta </td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> 085******* </td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Binar</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Binar</td>
+                  {
+                    DataGuru.map((data, i)=>
+                      <tr key={i} class="text-gray-700 dark:text-gray-100">
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{data.id_guru}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nama}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.alamat}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nohp}</td>
+                        
 
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                            <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <div class="flex items-center">
+                            <div class="relative w-full">
+                              {/* <Link to="/show" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link> */}
+                              <a href={`/updateg/${data.id_guru}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</a>
+                              <button className="btn btn-outline btn-error btn-sm mr-2" onClick={ e => handleDelete(data.id_guru)}>Hapus</button>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">2</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Arif Joko</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Kejuruan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Laki-Laki</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1980/07/23</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> Surakarta </td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> 085******* </td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Arif</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Arif</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                            <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">3</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Ratnawati</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Kejuruan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Perempuan</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">1994/03/09</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> Surakarta </td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"> 085******* </td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">@Ratnawati</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Ratnawati</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                            <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                        </td>
+                    </tr>)
+                    }
                     
-                    <div>
+                    {/* <div>
                         <input type="checkbox" id="modalTambah" className="modal-toggle" />
                             <div className="modal">
                                 <div className="modal-box relative">
@@ -348,7 +327,7 @@ const DataGuru = () => {
                             </form>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                   </tbody>
                 </table>
               </div>

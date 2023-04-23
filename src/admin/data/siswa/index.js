@@ -5,8 +5,6 @@ import SidebarAdmin from "../../../sidebar/sidebaradmin";
 import axios from "axios";
 import { useEffect } from "react";  
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 
 const DataSiswa = () => {
@@ -27,12 +25,6 @@ const[DataSiswa, setDataSiswa] = useState([])
     }catch(err){
         console.log(err);
     }
-  }
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () =>{
-    setShow(false)
   }
 
   return (
@@ -327,20 +319,7 @@ const[DataSiswa, setDataSiswa] = useState([])
                     </div>
 
                     {/* ini modal hapus */}
-                    <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                            <Modal.Title>Hapus Data</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>Yakin ingin hapus data?</Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Close
-                                </Button>
-                                <Button variant="primary" onClick={handleClose}>
-                                    Delete
-                                </Button>
-                            </Modal.Footer>
-                    </Modal>
+                   
                     
                     
                   </tbody>

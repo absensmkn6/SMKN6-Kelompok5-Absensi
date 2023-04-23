@@ -1,11 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import SidebarAdmin from "../../../sidebar/sidebaradmin";
+import { Link } from "heroicons-react";
+import axios from "axios";
 
 
 
 const DataKelas = () => {
+
+  const[DataKelas, setDatakelas] = useState([])
+
+  useEffect(()=>{
+    axios.get('http://localhost:8081/kelas/')
+    .then(res => setDatakelas(res.data))
+    .catch(err => console.log(err));
+}, [])
+
+const handleDelete = async (id_kelas) => {
+  // setShow(true)
+  try {
+      await axios.delete('http://localhost:8081/kelas/'+id_kelas)
+      window.location.reload()
+  }catch(err){
+      console.log(err);
+  }
+}
+
   return (
 
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
@@ -61,7 +82,7 @@ const DataKelas = () => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Kelas</h3>
-                  <label htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Kelas</label>
+                  <a href="/createk" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Kelas</a>
                 </div>
                 
               </div>
@@ -69,7 +90,7 @@ const DataKelas = () => {
                 <table class="items-center w-full bg-transparent border-collapse">
                   <thead>
                     <tr>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Kode Kelas</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">ID Kelas</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Kelas</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Jurusan</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Jumlah Siswa</th>
@@ -77,53 +98,28 @@ const DataKelas = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">01</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">X</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">35</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                            <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
+                  {
+                    DataKelas.map((data, i)=>
+                      <tr key={i} class="text-gray-700 dark:text-gray-100">
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{data.id_kelas}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.nama_kelas}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.jurusan}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.jumlah}</td>
+                        
+
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <div class="flex items-center">
+                            <div class="relative w-full">
+                              {/* <Link to="/show" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link> */}
+                              <a href={`/updatek/${data.id_kelas}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</a>
+                              <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => handleDelete(data.id_kelas)}>Hapus</button>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">02</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">36</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                            <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">03</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XII</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">33</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <div class="flex items-center">
-                          <div class="relative w-full">
-                            <label className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</label>
-                            <label className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</label>
-                            <label className="btn btn-outline btn-error btn-sm mr-2" htmlFor="modalHapus">Hapus</label>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                        </td>
+                    </tr>)
+                    }
                     
-                    <div>
+                    {/* <div>
                         <input type="checkbox" id="modalTambah" className="modal-toggle" />
                             <div className="modal">
                                 <div className="modal-box relative">
@@ -235,7 +231,8 @@ const DataKelas = () => {
                             </form>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+
                   </tbody>
                 </table>
               </div>

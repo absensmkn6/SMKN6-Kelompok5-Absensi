@@ -35,6 +35,10 @@ import RekapAdmin from "./admin/rekap";
 import LogoutAdmin from "./admin/logout";
 import CreateSiswa from "./admin/data/siswa/create";
 import UpdateSiswa from "./admin/data/siswa/update";
+import CreateKelas from "./admin/data/kelas/create";
+import UpdateKelas from "./admin/data/kelas/update";
+import CreateGuru from "./admin/data/guru/create";
+import UpdateGuru from "./admin/data/guru/update";
 
 
 function App(){
@@ -45,7 +49,7 @@ function App(){
           <Route component={Home} path="/" exact/>
           <Route component={Login} path="/login" />
           <Route component={Register} path="/register" />
-          <Route component={Navbar} path="/home/layout/navbar" />
+          {/* <Route component={Navbar} path="/home/layout/navbar" /> */}
 
 
           {/* SISWA */}
@@ -74,6 +78,12 @@ function App(){
           <Route component={LogoutAdmin} path="/admin/logout" />
           <Route component={CreateSiswa} path="/create" />
           <Route component={UpdateSiswa} path="/update/:id" />
+          <Route component={CreateKelas} path="/createk" />
+          <Route component={UpdateKelas} path="/updatek/:id_kelas" />
+          <Route component={CreateGuru} path="/createg" />
+          <Route component={UpdateGuru} path="/updateg/:id_guru" />
+
+        
 
         </Switch>
       </BrowserRouter>
