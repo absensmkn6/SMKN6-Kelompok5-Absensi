@@ -6,7 +6,26 @@ import SidebarAdmin from '../sidebar/sidebaradmin';
 
 
 const DashboardAdmin = () => {
+
+  // const[DashboardAdmin, setDashboardAdmin] = useState([])
+
+  //   useEffect(()=>{
+  //     axios.get('http://localhost:8081/countSiswa/')
+  //     .then(res => setDataSiswa(res.data))
+  //     .catch(err => console.log(err));
+  // }, [])
+
+
+  // const[DashboardAdmin, setDashboardAdmin] = useState([])
+
+  //   useEffect(()=>{
+  //     axios.get('http://localhost:8081/countSiswa/')
+  //     .then(res => setDataSiswa(res.data))
+  //     .catch(err => console.log(err));
+  // }, [])
+
   return (
+    
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <SidebarAdmin/>
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -17,7 +36,7 @@ const DashboardAdmin = () => {
             </div>
             <div class="text-right">
               <p class="text-2xl">Total Siswa</p>
-              <span class="text-sm font-bold leading-normal text-emerald-500">150</span>
+              <span class="text-sm font-bold leading-normal text-emerald-500">100</span>
             </div>
           </div>
           <div class="bg-purple-700 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">

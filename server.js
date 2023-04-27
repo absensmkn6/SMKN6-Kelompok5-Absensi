@@ -14,6 +14,15 @@ const db = mysql.createConnection({
 
 })
 
+// COUNT DATA FOR DASHBOARD
+// app.get("/countSiswa",(req, res) =>{
+//     const sql = "SELECT COUNT *  FROM siswa"
+//     db.query(sql, (err, data)=>{
+//         if(err) return res.json("error");
+//         return res.json(data);
+//     })
+// })
+
 // TABLE SISWA
 app.get("/", (req, res)=> {
     const sql = "SELECT * FROM siswa";

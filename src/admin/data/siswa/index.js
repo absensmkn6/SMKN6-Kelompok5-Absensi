@@ -129,7 +129,8 @@ const[DataSiswa, setDataSiswa] = useState([])
                             </div>
                           </div>
                         </td>
-                    </tr>)
+                    </tr>
+                    )
                     }
 
                     {/* ini modal tambah data */}
