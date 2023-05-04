@@ -1,0 +1,127 @@
+GET http://localhost:5000/siswa
+###
+GET http://localhost:5000/siswa/1000
+###
+POST http://localhost:5000/siswa
+Content-Type: application/json
+
+{
+    "nis": "1000",
+    "nama": "Thoriq Hanif",
+    "kelas": "XI",
+    "jurusan": "RPL",
+    "alamat": "Boyolali",
+    "gender": "L",
+    "nohp": "089669572100"
+}
+###
+PATCH  http://localhost:5000/siswa/1000
+Content-Type: application/json
+
+{
+    "nis": "999",
+    "nama": "Thoriq Hanif",
+    "kelas": "XI",
+    "jurusan": "RPL",
+    "gender": "L",
+    "alamat": "Surakarta",
+    "nohp": "081"
+}
+###
+DELETE  http://localhost:5000/siswa/1001
+
+# KELAS
+###
+GET http://localhost:5000/kelas
+###
+GET http://localhost:5000/kelas/1
+###
+POST http://localhost:5000/kelas
+Content-Type: application/json
+
+{
+    "nama": "XI",
+    "jumlah": "36"
+}
+###
+PATCH  http://localhost:5000/kelas/1000
+Content-Type: application/json
+
+{
+    "kode_kelas": "1",
+    "nama": "XI",
+    "jumlah": "36"
+
+}
+###
+DELETE  http://localhost:5000/kelas/1
+
+# USER
+
+###
+GET http://localhost:5000/user
+###
+GET http://localhost:5000/user/b020e3d5-4721-4b60-9598-a7fa3012bf18
+###
+POST http://localhost:5000/user
+Content-Type: application/json
+
+{
+    "nama": "Thoriq Hanif",
+    "email": "thrq@gmail.com",
+    "password": "thrq",
+    "confPassword": "thrq",
+    "role": "user"
+}
+###
+PATCH http://localhost:5000/user/f9417131-1dc3-4c3e-8c82-d1d348370436
+Content-Type: application/json
+
+{
+    "nama": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "confPassword": "admin",
+    "role": "admin"
+}
+###
+DELETE http://localhost:5000/user/f9417131-1dc3-4c3e-8c82-d1d348370436
+# LOGIN
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"admin@gmail.com",
+    "password":"admin"
+}
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email":"thrq@gmail.com",
+    "password":"thrq"
+}
+
+###
+GET http://localhost:5000/me
+
+###
+DELETE http://localhost:5000/logout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
