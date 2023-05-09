@@ -6,11 +6,10 @@ POST http://localhost:5000/siswa
 Content-Type: application/json
 
 {
-    "nis": "1000",
-    "nama": "Thoriq Hanif",
+    "nama": "Arzaki",
     "kelas": "XI",
     "jurusan": "RPL",
-    "alamat": "Boyolali",
+    "alamat": "Kr",
     "gender": "L",
     "nohp": "089669572100"
 }
@@ -67,14 +66,14 @@ POST http://localhost:5000/user
 Content-Type: application/json
 
 {
-    "nama": "Thoriq Hanif",
-    "email": "thrq@gmail.com",
-    "password": "thrq",
-    "confPassword": "thrq",
-    "role": "user"
+    "nama": "guru",
+    "email": "guru@gmail.com",
+    "password": "guru",
+    "confPassword": "guru",
+    "role": "guru"
 }
 ###
-PATCH http://localhost:5000/user/f9417131-1dc3-4c3e-8c82-d1d348370436
+PATCH http://localhost:5000/user/3ad9fa03-df56-4a96-9c2f-68b79f26a887
 Content-Type: application/json
 
 {
@@ -85,7 +84,7 @@ Content-Type: application/json
     "role": "admin"
 }
 ###
-DELETE http://localhost:5000/user/f9417131-1dc3-4c3e-8c82-d1d348370436
+DELETE http://localhost:5000/user/24737397-e8ec-4987-afc2-69c2945da76f
 # LOGIN
 ###
 POST http://localhost:5000/login
@@ -100,8 +99,8 @@ POST http://localhost:5000/login
 Content-Type: application/json
 
 {
-    "email":"thrq@gmail.com",
-    "password":"thrq"
+    "email":"user@gmail.com",
+    "password":"123"
 }
 
 ###

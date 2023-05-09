@@ -22,7 +22,6 @@ const User = db.define('users',{
     },
     email:{
         type: DataTypes.STRING,
-        defaultValue: DataTypes.UUIDV4,
         allowNull: false, 
         validate:{
             notEmpty: true,
@@ -31,7 +30,6 @@ const User = db.define('users',{
     },
     password:{
         type: DataTypes.STRING,
-        defaultValue: DataTypes.UUIDV4,
         allowNull: false, 
         validate:{
             notEmpty: true,
@@ -39,7 +37,6 @@ const User = db.define('users',{
     },
     role:{
         type: DataTypes.STRING,
-        defaultValue: DataTypes.UUIDV4,
         allowNull: false, 
         validate:{
             notEmpty: true,

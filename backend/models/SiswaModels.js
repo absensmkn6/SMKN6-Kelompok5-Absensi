@@ -1,6 +1,5 @@
 import { Sequelize } from "sequelize";
 import db from "../config/Database.js";
-import User from "./UserModels.js";
 
 const {DataTypes} = Sequelize;
 
@@ -9,14 +8,14 @@ const Siswa = db.define('siswa', {
         type: DataTypes.INTEGER,
         primaryKey:true
     },   
-    userId:{
-        type: DataTypes.INTEGER,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull: false, 
-        validate:{
-            notEmpty: true,
-        }
-    },
+    // userId:{
+    //     type: DataTypes.INTEGER,
+    //     defaultValue: DataTypes.UUIDV4,
+    //     allowNull: false, 
+    //     validate:{
+    //         notEmpty: true,
+    //     }
+    // },
     nama: DataTypes.STRING,
     kelas: DataTypes.STRING,
     jurusan: DataTypes.STRING,
@@ -29,8 +28,8 @@ const Siswa = db.define('siswa', {
 
 
 // RELASI
-User.hasMany(Siswa);
-Siswa.belongsTo(User, {foreignKey: 'userId'});
+// User.hasMany(Siswa);
+// Siswa.belongsTo(User, {foreignKey: 'userId'});
 
 export default Siswa;
 

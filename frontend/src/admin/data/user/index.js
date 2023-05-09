@@ -18,14 +18,14 @@ useEffect(()=>{
 }, []);
 
 const getUser = async () =>{
-  const response = await axios.get('http://localhost:5000/siswa');
+  const response = await axios.get('http://localhost:5000/user');
   setDataUser(response.data)
 };
 
-const deleteUser = async (nis) =>{
+const deleteUser = async (uuid) =>{
   try{
-    await axios.delete(`http://localhost:5000/siswa/${nis}`);
-    getSiswa();
+    await axios.delete(`http://localhost:5000/siswa/${uuid}`);
+    getUser();
   } catch (error){
     console.log(error);
   }
@@ -106,8 +106,8 @@ const deleteUser = async (nis) =>{
 
                   {
                     DataUser.map((user, index)=>(
-                      <tr key={siswa.nis} class="text-gray-700 dark:text-gray-100">
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{user.nis}</td>
+                      <tr key={user.uuid} class="text-gray-700 dark:text-gray-100">
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{user.id}</td>
                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user.nama}</td>
                         {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.ttl}</td> */}
                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user.email}</td>

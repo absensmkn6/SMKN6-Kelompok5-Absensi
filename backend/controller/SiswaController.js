@@ -1,4 +1,6 @@
 import Siswa from "../models/SiswaModels.js";
+import User from "../models/UserModels.js";
+import {Op} from "sequelize";
 
 export const getSiswa = async(req, res) =>{
     try{

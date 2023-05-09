@@ -39,6 +39,7 @@ import CreateKelas from "./admin/data/kelas/create";
 import UpdateKelas from "./admin/data/kelas/update";
 import CreateGuru from "./admin/data/guru/create";
 import UpdateGuru from "./admin/data/guru/update";
+import DataUser from "./admin/data/user";
 
 
 function App(){
@@ -74,7 +75,7 @@ function App(){
           <Route component={DataSiswa} path="/admin/siswa" />
           <Route component={DataKelas} path="/admin/kelas" />
           <Route component={DataGuru} path="/admin/guru" />
-          <Route component={DataGuru} path="/admin/user" />
+          <Route component={DataUser} path="/admin/user" />
           <Route component={RekapAdmin} path="/admin/rekap" />
           <Route component={LogoutAdmin} path="/admin/logout" />
           <Route component={CreateSiswa} path="/create" />

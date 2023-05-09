@@ -1,16 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+import axios from "axios";
 // import { AppContainer } from 'react-hot-loader';
 import './index.css';
 import App from './App';
 import Login from './login/Login';
 import reportWebVitals from './reportWebVitals';
 
+axios.defaults.withCredentials = true;
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    {/* <Login/> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

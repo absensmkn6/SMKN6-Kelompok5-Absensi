@@ -28,51 +28,50 @@ export const getUserById= async(req, res) =>{
 
 export const createUser = async(req, res) =>{
     const {nama, email, password, confPassword, role} = req.body;
-    if(password !== confPassword) return res.status(200).json({msg: "Password dan Confirm Password tidak cocok"});
+    if(password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password tidak cocok"});
     const hashPassword = await argon2.hash(password);
-    try{
-        await User.create(req.body,{
+    try {
+        await User.create({
             nama: nama,
             email: email,
             password: hashPassword,
             role: role
-    });
-        res.status(201).json({msg: "Berhasil Tambah User"});
-    } catch (error){
-        console.log(error.message);
+        });
+        res.status(201).json({msg: "Register Berhasil"});
+    } catch (error) {
+        res.status(400).json({msg: error.message});
     }
-
 }
 
-export const UpdateUser= async(req, res) =>{
+export const updateUser = async(req, res) =>{
     const user = await User.findOne({
-        where:{
+        where: {
             uuid: req.params.id
         }
     });
-    if(!user) return res.status(200).json({msg: "User tidak ditemukan"});
-    const {nama, email, password, confPassword, role} = req.body;
+    if(!user) return res.status(404).json({msg: "User tidak ditemukan"});
+    const {name, email, password, confPassword, role} = req.body;
     let hashPassword;
     if(password === "" || password === null){
         hashPassword = user.password
     }else{
         hashPassword = await argon2.hash(password);
-    } 
-    if(password !== confPassword) return res.status(200).json({msg: "Password dan Confirm Password tidak cocok"});
-    try{
-        await User.update(req.body,{
-            nama: nama,
+    }
+    if(password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password tidak cocok"});
+    try {
+        await User.update({
+            name: name,
             email: email,
             password: hashPassword,
             role: role
-    },{
-        where:{
-            id: user.id
-        }
-    });
-        res.status(201).json({msg: "Berhasil Update User"});
-    } catch (error){
-        console.log(error.message);
+        },{
+            where:{
+                id: user.id
+            }
+        });
+        res.status(200).json({msg: "User Updated"});
+    } catch (error) {
+        res.status(400).json({msg: error.message});
     }
 }
 

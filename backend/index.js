@@ -16,7 +16,7 @@ const sessionStore = SequelizeStore(session.Store);
 
 const store = new sessionStore({
     db: db
-})
+});
 
 app.use(session({
     secret: process.env.SESS_SECRET,
