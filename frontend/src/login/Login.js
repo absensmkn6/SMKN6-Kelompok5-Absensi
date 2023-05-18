@@ -74,7 +74,7 @@ import axios from 'axios';
     
       useEffect(() => {
         if (user || isSuccess) {
-          history.push("/dashboard");
+          history.push("../pages/Dashboard");
         }
         
         dispatch(reset());

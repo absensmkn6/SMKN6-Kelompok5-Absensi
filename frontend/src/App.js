@@ -62,6 +62,8 @@ function App(){
           <Route component={LogoutSiswa} path="/siswa/logout" />
 
 
+
+
           {/* GURU */}
           {/* <Route component={SidebarGuru} path="/sidebar/sidebarguru" />
           <Route component={RekapGuru} path="/guru/rekapguru" />
@@ -81,7 +83,7 @@ function App(){
           <Route component={UpdateGuru} path="/updateg/:id_guru" /> */}
 
         {/* BARU */}
-        <Route component={Dashboard} path="/dashboard" exact/>
+        <Route component={Dashboard} path="/pages/Dashboard"/>
         <Route component={Siswa} path="/admin/siswa" />
         <Route component={User} path="/admin/user" />
         <Route component={Logout} path="/logout" />

@@ -29,9 +29,10 @@ const Dashboard = () => {
   return (
     <Layout>
       <Welcome/>
-
+      {console.log(user && user.nama)}
     </Layout>
   );
+  
 };
 
 export default Dashboard;
