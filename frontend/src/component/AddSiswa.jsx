@@ -1,18 +1,18 @@
 import axios from "axios"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 // import { BrowserRouter as UseNavigate } from "react-router-dom"
 // import useNavigate from "react-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom/cjs/react-router-dom";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min"
-import Sidebar from "../../../component/Sidebar";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import Sidebar from "./Sidebar";
 
 
 
-const UpdateSiswa = () => {
+const CreateSiswa = () => {
 
-const {nis} = useParams();
+const [nis, setnis] = useState('')
 const [nama, setnama] = useState('')
 const [kelas, setkelas] = useState('')
 const [alamat, setalamat] = useState('')
@@ -21,49 +21,29 @@ const [jurusan, setjurusan] = useState('')
 const [gender, setgender] = useState('')
 // const [ttl, setttl] = useState('')
 
-useEffect(()=>{
-  getSiswaByNis();
-}, []);
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  try{
-    await axios.patch(`http://localhost:5000/siswa/${nis}`, {
-      nama, kelas, jurusan,  alamat, gender, nohp
-    });
-
-    history.push('/admin/siswa');
- 
-  } catch (error) {
-    console.log(error);
-  }
-
-};
-
-const getSiswaByNis = async () => {
-    const response = await axios.get(`http://localhost:5000/siswa/${nis}`);
-    setnama(response.data.nama);
-    setkelas(response.data.kelas);
-    setjurusan(response.data.jurusan);
-    setalamat(response.data.alamat);
-    setgender(response.data.gender);
-    setnohp(response.data.nohp);
-
-}
 
 const history = useHistory();
 
         // JANGAN DIHAPUS
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+    
+      await axios.post('http://localhost:5000/siswa', {nama, kelas, jurusan,  alamat, gender, nohp});
+
+      history.push('/admin/siswa');
+   
+    } catch (error) {
+      console.log(error);
+    }
+  
+}
 // function handleSubmit(event) {
 //     event.preventDefault();
-//     axios.put('http://localhost:8081/update/' + id, { nama, kelas, alamat, nohp}).then(res => {
-//         // console.log(res);
-//         if(res.data.updated){
-//             history.push('/admin/datas');
-//         }else{
-//           alert("Data gagal diupdate");
-//         }
-//     })
+//     axios.post('http://localhost:5000/siswa', { nama, kelas, jurusan,  alamat, gender, nohp}).then(res => {
+//         console.log(res);
+//         history.push('/admin/datas');
+//     }).catch(err => console.log(err));
 // }
 
     return(
@@ -120,26 +100,26 @@ const history = useHistory();
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
-                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Update Data Siswa</h3>
+                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Siswa</h3>
+                  <a href="/../create/siswa"  className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
               <div class="block w-full overflow-x-auto">
-                
               <form onSubmit={handleSubmit}>
                         <div class="card-body">
-                            <div class="form-group">
+                            {/* <div class="form-group">
                                 <label>NIS</label><br></br>
-                                <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={nis} name="nis" disabled/>
-                            </div>
+                                <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan NIS Siswa" onChange={e => setnis(e.target.value)} name="nis" />
+                            </div> */}
                             <div class="form-group">
                                 <label>Nama</label><br></br>
-                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" onChange={e => setnama(e.target.value)} name="nama" value={nama} />
+                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Nama Lengkap" onChange={e => setnama(e.target.value)} name="nama" />
                             </div>
                             <div class="form-group">
                                 <label>Kelas</label><br></br>
                                 <select className="select select-primary w-full max-w mt-2" value={kelas} onChange={e => setkelas(e.target.value)}>
-                                <option selected></option>
+                                <option selected>Pilih Kelas</option>
                                     <option value="X">X</option>
                                     <option value="XI">XI</option>
                                     <option value="XII">XII</option>
@@ -154,9 +134,24 @@ const history = useHistory();
                                 </select>
                             </div>
                             <div class="form-group">
+                                    <label>No.Telp</label><br></br>
+                                    <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan No.Telp"  onChange={e => setnohp(e.target.value)} />
+                                </div>
+                            <div class="form-group">
                                 <label>Alamat</label><br></br>
-                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat" value={alamat} onChange={e => setalamat(e.target.value)}/>
+                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat" onChange={e => setalamat(e.target.value)}/>
                             </div>
+                            <div class="form-group hidden">
+                                    <label>Role</label><br></br>
+                                    <input type="hidden" value='siswa'/>
+                            </div>
+                            {/* <div class="form-group">
+                                <label>TTL</label><br></br>
+                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal Lahir" onChange={e => setttl(e.target.value)}/>
+                            </div> */}
+                            
+                            
+                            
                             <div class="form-group">
                                 <label>Jenis Kelamin</label><br></br>
                                     <select className="select select-primary w-full max-w mt-2" value={gender} onChange={e => setgender(e.target.value)}>
@@ -166,18 +161,6 @@ const history = useHistory();
                                     </select>
                                     
                             </div>
-                            <div class="form-group">
-                                    <label>No.Telp</label><br></br>
-                                    <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan No.Telp" value={nohp}  onChange={e => setnohp(e.target.value)} />
-                                </div>
-                            {/* <div class="form-group">
-                                <label>TTL</label><br></br>
-                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal Lahir" onChange={e => setttl(e.target.value)}/>
-                            </div> */}
-                            
-                            
-                            
-                            
                                 
                                 {/* <div class="form-group">
                                     <label>Username</label><br></br>
@@ -190,7 +173,7 @@ const history = useHistory();
                         </div>
 
                     <div class="card-footer">
-                    <button  class="btn btn-primary btn-sm ml-8 mb-5">Update</button>
+                    <button  class="btn btn-primary btn-sm ml-8 mb-5">ADD</button>
                     </div>
                 </form>
               </div>
@@ -209,4 +192,4 @@ const history = useHistory();
     )
 }
 
-export default UpdateSiswa
+export default CreateSiswa

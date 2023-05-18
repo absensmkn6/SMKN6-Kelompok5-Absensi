@@ -4,14 +4,6 @@ import db from "../config/Database.js";
 const {DataTypes} = Sequelize;
 
 const User = db.define('users',{
-    uuid:{
-        type: DataTypes.STRING,
-        defaultValue: DataTypes.UUIDV4,
-        allowNull: false, 
-        validate:{
-            notEmpty: true
-        }
-    },
     nama:{
         type: DataTypes.STRING,
         allowNull: false, 
@@ -28,6 +20,27 @@ const User = db.define('users',{
             isEmail: true
         }
     },
+    nohp:{
+        type: DataTypes.STRING,
+        allowNull: false, 
+        validate:{
+            notEmpty: true,
+        }
+    },
+    alamat:{
+        type: DataTypes.STRING,
+        allowNull: false, 
+        validate:{
+            notEmpty: true,
+        }
+    },
+    gender:{
+        type: DataTypes.STRING,
+        allowNull: false, 
+        validate:{
+            notEmpty: true,
+        }
+    },
     password:{
         type: DataTypes.STRING,
         allowNull: false, 
@@ -41,7 +54,14 @@ const User = db.define('users',{
         validate:{
             notEmpty: true,
         }
-    }
+    },
+    user_kode:{
+        type: DataTypes.INTEGER,
+        allowNull: false, 
+        validate:{
+            notEmpty: true,
+        }
+    },
 },{
     freezeTableName: true
 });

@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from "react";
 import avatar from '../images/avatar.png';
-import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Countdown from 'react-countdown';
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../features/authSlices";
 
 // import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTachometerAlt, faUser, faCalendarCheck,  faSignOutAlt,  } from '@fortawesome/free-solid-svg-icons'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 const SidebarAdmin = () => {
   const countdownDate = new Date("2023-07-01T00:00:00Z").getTime();
   const [date, setDate] = useState(new Date());
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { user } = useSelector((state) => state.auth);
+
+  const logout = () => {
+    dispatch(LogOut());
+    dispatch(reset());
+    history.push("/login");
+  };
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -60,7 +72,7 @@ const SidebarAdmin = () => {
       </li>
     </ul>
   </div>
-</div>
+        </div>
       <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-purple-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
       <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
         <ul class="flex flex-col py-4 space-y-1">
@@ -69,7 +81,7 @@ const SidebarAdmin = () => {
               <div className="flex flex-col items-center mr-5">
                 <div className="text-center items-center">
                   <img src={avatar} alt="Profile Picture" className="rounded-full mb-2 mt-4 hidden md:block" width="120" height="120"/>
-                  <p className="text-lg font-semibold hidden md:block">Admin</p>
+                  <p className="text-lg font-semibold hidden md:block">{user && user.nama}</p>
 
                 </div>
               </div>
@@ -81,7 +93,7 @@ const SidebarAdmin = () => {
               <div class="text-sm font-light tracking-wide text-gray-400 ">Menu</div>
             </div>
           </li>
-            <a href="../admin/dashboard" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6 active">
+            <a href="/dashboard" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6 active">
               <span class="inline-flex justify-center items-center ml-4">
               <FontAwesomeIcon icon={faTachometerAlt} className="w-5 h-5" />
               </span>
@@ -117,7 +129,9 @@ const SidebarAdmin = () => {
               <span class="inline-flex justify-center items-center ml-4">
               <FontAwesomeIcon icon={faSignOutAlt} className="w-5 h-5" />
               </span>
-              <span class="ml-2 text-sm tracking-wide truncate">Logout</span>
+              <button onClick={logout} className="button is-white">
+               Logout
+            </button>
             </a>
           </li>
         </ul>

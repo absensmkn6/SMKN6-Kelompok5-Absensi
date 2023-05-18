@@ -3,10 +3,7 @@ import Login from "./login/Login";
 import Home from "./home/home";
 import { BrowserRouter, Switch, Route, NavLink, Redirect, Link } from "react-router-dom"; 
 import Register from "./login/Register";
-import Admin from "./admin/dashboard";
-import LoginAdmin from "./admin/login";
 import Sidebar from "./sidebar/sidebarsiswa";
-import Navbar from "./home/layout/navbar";
 
 //SIDEBAR
 import SidebarGuru from "./sidebar/sidebarguru";
@@ -27,12 +24,11 @@ import DashboardGuru from "./guru/dashboard"
 import LogoutGuru from "./guru/logout"
 
 //ADMIN
-import DashboardAdmin from "./admin/dashboard";
 import DataSiswa from "./admin/data/siswa";
 import DataKelas from "./admin/data/kelas";
 import DataGuru from "./admin/data/guru";
 import RekapAdmin from "./admin/rekap";
-import LogoutAdmin from "./admin/logout";
+import Logout from "./admin/logout";
 import CreateSiswa from "./admin/data/siswa/create";
 import UpdateSiswa from "./admin/data/siswa/update";
 import CreateKelas from "./admin/data/kelas/create";
@@ -40,6 +36,15 @@ import UpdateKelas from "./admin/data/kelas/update";
 import CreateGuru from "./admin/data/guru/create";
 import UpdateGuru from "./admin/data/guru/update";
 import DataUser from "./admin/data/user";
+import Dashboard from "./pages/Dashboard";
+import AddSiswa from "./pages/AddSiswa";
+import Siswa from "./pages/DataSiswa";
+import User from "./pages/DataUser";
+import AddUser from "./pages/AddUser";
+import EditSiswa from "./pages/EditSiswa";
+import Rekap from "./pages/Rekap";
+import Profile from "./pages/Profile";
+import Absen from "./pages/AbsenSiswa";
 
 
 function App(){
@@ -54,38 +59,40 @@ function App(){
 
 
           {/* SISWA */}
-          <Route component={DashboardSiswa} path="/siswa/dashboard" />
-          <Route component={SidebarSiswa} path="/sidebar/sidebarsiswa" />
-          <Route component={ProfileSiswa} path="/siswa/profile" />
-          <Route component={AbsenSiswa} path="/siswa/absen" />
           <Route component={LogoutSiswa} path="/siswa/logout" />
 
 
           {/* GURU */}
-          <Route component={SidebarGuru} path="/sidebar/sidebarguru" />
+          {/* <Route component={SidebarGuru} path="/sidebar/sidebarguru" />
           <Route component={RekapGuru} path="/guru/rekapguru" />
           <Route component={ProfileGuru} path="/guru/profile" />
           <Route component={DashboardGuru} path="/guru/dashboard" />
-          <Route component={LogoutGuru} path="/guru/logout" />
+          <Route component={LogoutGuru} path="/guru/logout" /> */}
 
 
           {/* ADMIN */}
-          <Route component={SidebarAdmin} path="/sidebar/sidebaradmin" />
-          <Route component={DashboardAdmin} path="/admin/dashboard" />
-          <Route component={DataSiswa} path="/admin/siswa" />
-          <Route component={DataKelas} path="/admin/kelas" />
-          <Route component={DataGuru} path="/admin/guru" />
-          <Route component={DataUser} path="/admin/user" />
-          <Route component={RekapAdmin} path="/admin/rekap" />
-          <Route component={LogoutAdmin} path="/admin/logout" />
-          <Route component={CreateSiswa} path="/create" />
-          <Route component={UpdateSiswa} path="/edit/:nis" />
-          <Route component={CreateKelas} path="/createk" />
+          {/* <Route component={DataKelas} path="/admin/kelas" />
+          <Route component={DataGuru} path="/admin/guru" /> */}
+          <Route component={Logout} path="/logout" />
+          
+          {/* <Route component={CreateKelas} path="/createk" />
           <Route component={UpdateKelas} path="/editKelas/:kode_kelas" />
           <Route component={CreateGuru} path="/createg" />
-          <Route component={UpdateGuru} path="/updateg/:id_guru" />
+          <Route component={UpdateGuru} path="/updateg/:id_guru" /> */}
 
-        
+        {/* BARU */}
+        <Route component={Dashboard} path="/dashboard" exact/>
+        <Route component={Siswa} path="/admin/siswa" />
+        <Route component={User} path="/admin/user" />
+        <Route component={Logout} path="/logout" />
+        <Route component={AddSiswa} path="/create/siswa" />
+        <Route component={AddUser} path="/create/user" />
+        <Route component={EditSiswa} path="/edit/:nis" />
+        <Route component={Profile} path="/siswa/profile" />
+        <Route component={Absen} path="/siswa/absen" />
+
+
+
 
         </Switch>
       </BrowserRouter>

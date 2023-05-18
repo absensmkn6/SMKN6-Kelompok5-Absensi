@@ -4,7 +4,7 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import SidebarAdmin from "../sidebar/sidebaradmin"
 
 
-export default function LogoutAdmin() {
+export default function Logout() {
   const [open, setOpen] = useState(true)
 
   const cancelButtonRef = useRef(null)

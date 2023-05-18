@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min"
-import Sidebar from "../../../component/Sidebar";
+import Sidebar from "./Sidebar";
+
 
 
 

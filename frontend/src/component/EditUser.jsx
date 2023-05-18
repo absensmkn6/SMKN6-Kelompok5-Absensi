@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const EditUser = () => {
+const UpdateUser = () => {
   const [nama, setNama] = useState("");
   const [email, setEmail] = useState("");
   const [nohp, setNohp] = useState("");
@@ -20,7 +20,7 @@ const EditUser = () => {
   useEffect(() => {
     const getUserById = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/users/${id}`);
+        const response = await axios.get(`http://localhost:5000/user/${id}`);
         setNama(response.data.nama);
         setEmail(response.data.email);
         setNohp(response.data.nohp);
@@ -40,7 +40,7 @@ const EditUser = () => {
   const updateUser = async (e) => {
     e.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/users/${id}`, {
+      await axios.patch(`http://localhost:5000/user/${id}`, {
         nama: nama,
         email: email,
         nohp: nohp,
@@ -206,4 +206,4 @@ const EditUser = () => {
   );
 };
 
-export default EditUser;
+export default UpdateUser;
