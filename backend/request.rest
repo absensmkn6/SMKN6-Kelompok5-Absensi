@@ -66,15 +66,16 @@ POST http://localhost:5000/user
 Content-Type: application/json
 
 {
-    "nama": "Thoriq Hanif",
-    "email": "thrq@gmail.com",
+    "nama": "Admin",
+    "email": "admin@gmail.com",
     "nohp": "089",
     "alamat": "Surakarta",
     "gender": "L",
+    "tanggal_lahir": "2006-11-06",
     "password": "123",
     "confPassword": "123",
-    "role": "siswa",
-    "user_kode": "17070"
+    "role": "admin",
+    "user_kode": "1"
 }
 
 

@@ -1,12 +1,10 @@
 import axios from "axios"
 import React, { useState } from "react"
-// import { BrowserRouter as UseNavigate } from "react-router-dom"
-// import useNavigate from "react-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { faUser, faCalendarCheck, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import Sidebar from "./Sidebar";
+import { motion } from "framer-motion";
 
 
 
@@ -19,7 +17,7 @@ const [alamat, setalamat] = useState('')
 const [nohp, setnohp] = useState('')
 const [jurusan, setjurusan] = useState('')
 const [gender, setgender] = useState('')
-// const [ttl, setttl] = useState('')
+const [tanggal_lahir, settgl] = useState('')
 
 
 const history = useHistory();
@@ -48,6 +46,13 @@ const handleSubmit = async (e) => {
 
     return(
         <>
+        <motion.div
+
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity:0 }}
+          transition={{  duration: 2 }}
+          >
         <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <Sidebar/>
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -161,6 +166,12 @@ const handleSubmit = async (e) => {
                                     </select>
                                     
                             </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Lahir</label><br></br>
+                                <input type="date" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal" onChange={e => settgl(e.target.value)} />
+                                    
+                            </div>
                                 
                                 {/* <div class="form-group">
                                     <label>Username</label><br></br>
@@ -188,6 +199,7 @@ const handleSubmit = async (e) => {
         </div>
         
       </div>
+      </motion.div>
 </>
     )
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getMe } from "../features/authSlices";
 import UpdateUser from "../component/EditUser";
+import { motion } from "framer-motion";
 
 const EditUser = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,17 @@ const EditUser = () => {
     }
   }, [isError, user, history]);
   return (
+    <motion.div
+
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity:0 }}
+    transition={{  duration: 2 }}
+>
     <Layout>
       <UpdateUser />
     </Layout>
+    </motion.div>
   );
 };
 

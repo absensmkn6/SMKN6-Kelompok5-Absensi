@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import swal from 'sweetalert';
 import Sidebar from "./Sidebar";
+import { motion } from "framer-motion";
 
 
 
@@ -32,7 +33,13 @@ const deleteUser = async (id) =>{
 }
 
   return (
+    <motion.div
 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity:0 }}
+      transition={{  duration: 2 }}
+      >
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <Sidebar/>
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -86,7 +93,7 @@ const deleteUser = async (id) =>{
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data User</h3>
-                  <a href="../create/user" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+                  <a href="/createUser" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
@@ -94,7 +101,7 @@ const deleteUser = async (id) =>{
                 <table class="items-center w-full bg-transparent border-collapse">
                   <thead>
                     <tr>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">ID</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">No</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Nama</th>
                       {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">TTL</th> */}
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Email</th>
@@ -107,7 +114,7 @@ const deleteUser = async (id) =>{
                   {
                     DataUser.map((user, index)=>(
                       <tr key={user.id} class="text-gray-700 dark:text-gray-100">
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{user.id}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{index+1}</td>
                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user.nama}</td>
                         {/* <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{data.ttl}</td> */}
                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user.email}</td>
@@ -116,7 +123,7 @@ const deleteUser = async (id) =>{
                           <div class="flex items-center">
                             <div class="relative w-full">
                               <Link to="/show" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
-                              <Link to={`/edit/${user.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
+                              <Link to={`/editUser/${user.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
                               <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => deleteUser(user.id)}>Hapus</button>
                             </div>
                           </div>
@@ -138,7 +145,7 @@ const deleteUser = async (id) =>{
         </div>
         
       </div>
-    
+      </motion.div>
   );
 
 };

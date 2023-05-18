@@ -7,6 +7,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom";
 import swal from 'sweetalert';
 import { useSelector } from "react-redux";
 import Sidebar from "./Sidebar";
+import { motion } from "framer-motion";
 
 
 
@@ -35,7 +36,13 @@ const deleteSiswa = async (nis) =>{
 }
 
   return (
+      <motion.div
 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity:0 }}
+      transition={{  duration: 2 }}
+      >
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <Sidebar/>
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -89,7 +96,7 @@ const deleteSiswa = async (nis) =>{
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Siswa</h3>
-                  <a href="../create/siswa" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+                  <a href="/createSiswa" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
@@ -155,6 +162,7 @@ const deleteSiswa = async (nis) =>{
         </div>
         
       </div>
+      </motion.div>
     
   );
 

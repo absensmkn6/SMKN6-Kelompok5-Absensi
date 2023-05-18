@@ -46,11 +46,15 @@ import Rekap from "./pages/Rekap";
 import Profile from "./pages/Profile";
 import Absen from "./pages/AbsenSiswa";
 
+import { AnimatePresence } from "framer-motion";
+import EditUser from "./pages/EditUser";
+
 
 function App(){
   return (
     <div className="App">
       <BrowserRouter>
+      <AnimatePresence>
         <Switch>
           <Route component={Home} path="/" exact/>
           <Route component={Login} path="/login" />
@@ -83,20 +87,23 @@ function App(){
           <Route component={UpdateGuru} path="/updateg/:id_guru" /> */}
 
         {/* BARU */}
-        <Route component={Dashboard} path="/pages/Dashboard"/>
+        <Route component={Dashboard} path="/dashboard"/>
         <Route component={Siswa} path="/admin/siswa" />
         <Route component={User} path="/admin/user" />
         <Route component={Logout} path="/logout" />
-        <Route component={AddSiswa} path="/create/siswa" />
-        <Route component={AddUser} path="/create/user" />
-        <Route component={EditSiswa} path="/edit/:nis" />
+        <Route component={AddSiswa} path="/createSiswa" />
+        <Route component={AddUser} path="/createUser" />
+        <Route component={EditSiswa} path="/editSiswa/:nis" />
+        <Route component={EditUser} path="/editUser/:id" />
         <Route component={Profile} path="/siswa/profile" />
+        <Route component={Rekap} path="/admin/rekap" />
         <Route component={Absen} path="/siswa/absen" />
 
 
 
 
         </Switch>
+        </AnimatePresence>
       </BrowserRouter>
       
      

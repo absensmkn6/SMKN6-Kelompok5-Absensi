@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { IoPerson, IoPricetag, IoHome, IoLogOut } from "react-icons/io5";
+
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";

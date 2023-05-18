@@ -41,6 +41,13 @@ const User = db.define('users',{
             notEmpty: true,
         }
     },
+    tanggal_lahir:{
+        type: DataTypes.DATE,
+        allowNull: false, 
+        validate:{
+            notEmpty: true,
+        }
+    },
     password:{
         type: DataTypes.STRING,
         allowNull: false, 

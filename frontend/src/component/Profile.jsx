@@ -1,12 +1,24 @@
 import React from "react";
 import avatar from '../images/avatar.png';
-import guru1 from '../images/icmaleteacher.png';
-import guru2 from '../images/icfemaleteacher.png';
-import SidebarSiswa from "../sidebar/sidebarsiswa"
 import Sidebar from "../component/Sidebar";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../features/authSlices";
+
 
 
 const ProfileSiswa = () => {
+
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const { user } = useSelector((state) => state.auth);
+  
+    const logout = () => {
+        dispatch(LogOut());
+        dispatch(reset());
+        history.push("/login");
+      };
+
     return(
         <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <Sidebar/>
@@ -22,7 +34,7 @@ const ProfileSiswa = () => {
                             src="https://lavinephotography.com.au/wp-content/uploads/2017/01/PROFILE-Photography-112.jpg"
                             alt=""/>
                     </div>
-                    <h1 class="text-white font-bold text-xl leading-8 my-1">Nama Siswa</h1>
+                    <h1 class="text-white font-bold text-xl leading-8 my-1"></h1>
                     <img src={avatar} alt="Profile Picture" className="rounded-full mb-2 mt-4 hidden md:block mx-auto block" width="120" height="120"/>
                     <h3 class="text-gray-300 font-lg text-semibold leading-6">Keterangan</h3>
                     <ul
@@ -89,15 +101,15 @@ const ProfileSiswa = () => {
                         <div class="grid md:grid-cols-2 text-sm">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Nama Panggilan:</div>
-                                <div class="px-4 py-2">Nama Panggilan Siswa</div>
+                                <div class="px-4 py-2">{user && user.nama}</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Nama Lengkap:</div>
-                                <div class="px-4 py-2">Nama Lengkap Siswa</div>
+                                <div class="px-4 py-2">{user && user.nama}</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Nomor Induk:</div>
-                                <div class="px-4 py-2">10983</div>
+                                <div class="px-4 py-2 font-semibold">NIS</div>
+                                <div class="px-4 py-2">{user && user.user_kode}</div>
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Kelas:</div>
@@ -105,7 +117,7 @@ const ProfileSiswa = () => {
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Jenis Kelamin:</div>
-                                <div class="px-4 py-2">cwk</div>
+                                <div class="px-4 py-2">{user && user.gender}</div>
                             </div>
             
                             <div class="grid grid-cols-2">
@@ -114,12 +126,12 @@ const ProfileSiswa = () => {
                             </div>
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Alamat:</div>
-                                <div class="px-4 py-2">jalan...</div>
+                                <div class="px-4 py-2">{user && user.alamat}</div>
                             </div>
                            
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Telepon:</div>
-                                <div class="px-4 py-2">+62-856</div>
+                                <div class="px-4 py-2">{user && user.nohp}</div>
                             </div>
                         </div>
                     </div>

@@ -6,12 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Sidebar from "./Sidebar";
+import { motion } from "framer-motion";
 
 const Welcome = () => {
   const { user } = useSelector((state) => state.auth);
   return (
     <>
     {/* DASHBOARD ADMIN */}
+    <motion.div
+
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity:0 }}
+          transition={{  duration: 2 }}
+      >
     <div>
     {user && user.role === "admin" && (
       <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
@@ -469,6 +477,7 @@ const Welcome = () => {
         </div>
     )}
     </div>
+    </motion.div>
     </>
 
   );

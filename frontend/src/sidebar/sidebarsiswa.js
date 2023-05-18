@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import avatar from '../images/avatar.png';
-import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import Countdown from 'react-countdown';
-// import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTachometerAlt, faUser, faCalendarCheck,  faSignOutAlt,  } from '@fortawesome/free-solid-svg-icons'
 

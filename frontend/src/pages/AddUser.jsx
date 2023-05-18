@@ -5,6 +5,7 @@ import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import CreateSiswa from "../component/AddSiswa";
 import CreateUser from "../component/AddUser";
+import { motion } from "framer-motion";
 
 const AddUser = () => {
   const dispatch = useDispatch();
@@ -24,9 +25,17 @@ const AddUser = () => {
     }
   }, [isError, user, history]);
   return (
+    <motion.div
+
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity:0 }}
+    transition={{  duration: 2 }}
+>
     <Layout>
       <CreateUser />
     </Layout>
+    </motion.div>
   );
 };
 

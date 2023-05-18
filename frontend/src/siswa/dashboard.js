@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faVirus, faSyringe, faCheck, faHandshake  } from '@fortawesome/free-solid-svg-icons'
+import {  faSignOutAlt, faSyringe, faCheck, faHandshake  } from '@fortawesome/free-solid-svg-icons'
 import SidebarSiswa from '../sidebar/sidebarsiswa';
 
 

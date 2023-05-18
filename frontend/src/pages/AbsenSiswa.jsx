@@ -3,13 +3,8 @@ import Layout from "./Layout";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
-import RekapAdmin from "../component/Rekap";
-import ProfileSiswa from "../component/Profile";
 import AbsenSiswa from "../component/AbsenSiswa";
+import { motion } from "framer-motion";
 
 
 const Absen = () => {
@@ -29,10 +24,18 @@ const Absen = () => {
   }, [isError, history]);
 
   return (
+    <motion.div
+
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity:0 }}
+          transition={{  duration: 2 }}
+      >
     <Layout>
       <AbsenSiswa/>
 
     </Layout>
+    </motion.div>
   );
 };
 

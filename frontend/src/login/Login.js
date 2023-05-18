@@ -2,7 +2,7 @@ import { Link, useHistory } from 'react-router-dom';
 import {LoginUser, reset} from '../features/authSlices';
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
-import axios from 'axios';
+import { motion } from 'framer-motion'
 
 
 
@@ -74,7 +74,7 @@ import axios from 'axios';
     
       useEffect(() => {
         if (user || isSuccess) {
-          history.push("../pages/Dashboard");
+          history.push("/dashboard");
         }
         
         dispatch(reset());
@@ -87,6 +87,13 @@ import axios from 'axios';
     
 
     return (
+      <motion.div
+
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity:0 }}
+          transition={{  duration: 2 }}
+      >
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
             <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-purple-600/60 ring ring-2 ring-purple-600 lg:max-w-xl">
                 <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
@@ -124,6 +131,7 @@ import axios from 'axios';
                 </p>
             </div>
         </div>
+        </motion.div>
     );
 }
 

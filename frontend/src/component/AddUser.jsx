@@ -7,6 +7,7 @@ import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faScho
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
 import Sidebar from "./Sidebar";
+import { motion } from "framer-motion";
 
 
 
@@ -18,8 +19,9 @@ const [email, setemail] = useState('')
 const [nohp, setnohp] = useState('')
 const [alamat, setalamat] = useState('')
 const [gender, setgender] = useState('')
+const [tanggal_lahir, settgl] = useState('')
 const [password, setpassword] = useState('')
-const [confpassword, setconfpassword] = useState('')
+const [confPassword, setconfpassword] = useState('')
 const [role, setrole] = useState('')
 const [user_kode, setuser_kode] = useState('')
 const [msg, setMsg] = useState("");
@@ -34,7 +36,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try{
     
-      await axios.post('http://localhost:5000/user', {nama, email, nohp, alamat, gender, password, confpassword, role, user_kode});
+      await axios.post('http://localhost:5000/user', {nama, email, nohp, alamat, gender, tanggal_lahir, password, confPassword, role, user_kode});
 
       history.push('/admin/user');
    
@@ -53,6 +55,14 @@ const handleSubmit = async (e) => {
 
     return(
         <>
+        <motion.div
+
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity:0 }}
+          transition={{  duration: 2 }}
+          >
+
         <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <Sidebar/>
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
@@ -135,6 +145,21 @@ const handleSubmit = async (e) => {
                                 <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat" value={alamat} onChange={e => setalamat(e.target.value)}/>
                             </div>
                             <div class="form-group">
+                                <label>Jenis Kelamin</label><br></br>
+                                    <select className="select select-primary w-full max-w mt-2" value={gender} onChange={e => setgender(e.target.value)}>
+                                    <option  selected>Pilih Jenis Kelamin</option>
+                                        <option value="L">Laki-Laki</option>
+                                        <option value="P">Perempuan</option>
+                                    </select>
+                                    
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Lahir</label><br></br>
+                                <input type="date" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal" onChange={e => settgl(e.target.value)} />
+                                    
+                            </div>
+                            <div class="form-group">
                                 <label>Role</label><br></br>
                                 <select className="select select-primary w-full max-w mt-2" value={role} onChange={e => setrole(e.target.value)}>
                                 <option  selected>Pilih Role</option>
@@ -152,14 +177,14 @@ const handleSubmit = async (e) => {
                             </div>
                             <div class="form-group">
                                 <label>Confirm Password</label><br></br>
-                                <input type="password" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Confirm Password" onChange={e => setconfpassword(e.target.value)} value={confpassword}/>
+                                <input type="password" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Confirm Password" onChange={e => setconfpassword(e.target.value)} value={confPassword}/>
                             </div>
                             
                             
                         </div>
 
                     <div class="card-footer">
-                    <button  class="btn btn-primary btn-sm ml-8 mb-5">ADD</button>
+                    <button type="submit" class="btn btn-primary btn-sm ml-8 mb-5">ADD</button>
                     </div>
                 </form>
               </div>
@@ -174,6 +199,7 @@ const handleSubmit = async (e) => {
         </div>
         
       </div>
+      </motion.div>
 </>
     )
 }

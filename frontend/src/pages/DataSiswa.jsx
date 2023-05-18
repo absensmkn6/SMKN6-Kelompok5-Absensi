@@ -4,6 +4,7 @@ import DataSiswa from "../component/DataSiswa";
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { motion } from "framer-motion";
 
 const Siswa = () => {
   const dispatch = useDispatch();
@@ -20,9 +21,17 @@ const Siswa = () => {
     }
   }, [isError, history]);
   return (
+    <motion.div
+
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity:0 }}
+    transition={{  duration: 2 }}
+>
     <Layout>
       <DataSiswa />
     </Layout>
+    </motion.div>
   );
 };
 

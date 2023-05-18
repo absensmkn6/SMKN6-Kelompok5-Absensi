@@ -3,11 +3,8 @@ import Layout from "./Layout";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import Welcome from "../component/Welcome";
+import { motion } from "framer-motion";
 
 
 const Dashboard = () => {
@@ -27,10 +24,18 @@ const Dashboard = () => {
   }, [isError, history]);
 
   return (
+    <motion.div
+
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity:0 }}
+    transition={{  duration: 2 }}
+>
     <Layout>
       <Welcome/>
       {console.log(user && user.nama)}
     </Layout>
+    </motion.div>
   );
   
 };

@@ -4,7 +4,7 @@ import argon2 from "argon2";
 export const getUser = async(req, res) =>{
     try{
         const response = await User.findAll({
-            attributes:['id','nama','email','nohp','alamat','gender','role','user_kode']
+            attributes:['id','nama','email','nohp','alamat','gender','tanggal_lahir','role','user_kode']
         });
         res.status(200).json(response);
     } catch (error){
@@ -15,7 +15,7 @@ export const getUser = async(req, res) =>{
 export const getUserById= async(req, res) =>{
     try{
         const response = await User.findOne({
-            attributes:['id','nama','email','nohp','alamat','gender','role','user_kode'],
+            attributes:['id','nama','email','nohp','alamat','gender','tanggal_lahir','role','user_kode'],
             where:{
                 id: req.params.id
             }
@@ -27,7 +27,7 @@ export const getUserById= async(req, res) =>{
 }
 
 export const createUser = async(req, res) =>{
-    const {nama, email, nohp, alamat, gender, password, confPassword, role, user_kode} = req.body;
+    const {nama, email, nohp, alamat, gender, tanggal_lahir, password, confPassword, role, user_kode} = req.body;
     if(password !== confPassword) return res.status(400).json({msg: "Password dan Confirm Password tidak cocok"});
     const hashPassword = await argon2.hash(password);
     try {
@@ -37,6 +37,7 @@ export const createUser = async(req, res) =>{
             nohp: nohp,
             alamat: alamat,
             gender: gender,
+            tanggal_lahir: tanggal_lahir,
             password: hashPassword,
             role: role,
             user_kode: user_kode,
@@ -54,7 +55,7 @@ export const updateUser = async(req, res) =>{
         }
     });
     if(!user) return res.status(404).json({msg: "User tidak ditemukan"});
-    const {name, email,nohp, alamat, gender, password, confPassword, role, user_kode} = req.body;
+    const {name, email,nohp, alamat, gender, tanggal_lahir, password, confPassword, role, user_kode} = req.body;
     let hashPassword;
     if(password === "" || password === null){
         hashPassword = user.password
@@ -69,6 +70,7 @@ export const updateUser = async(req, res) =>{
             nohp: nohp,
             alamat: alamat,
             gender: gender,
+            tanggal_lahir: tanggal_lahir,
             password: hashPassword,
             role: role,
             user_kode: user_kode

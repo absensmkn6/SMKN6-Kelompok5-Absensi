@@ -3,8 +3,9 @@ import Layout from "./Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import CreateSiswa from "../component/AddSiswa";
 import CreateUser from "../component/AddUser";
+import { motion } from "framer-motion";
+import CreateSiswa from "../component/AddSiswa";
 
 const AddSiswa = () => {
   const dispatch = useDispatch();
@@ -24,9 +25,17 @@ const AddSiswa = () => {
     }
   }, [isError, user, history]);
   return (
+    <motion.div
+
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity:0 }}
+    transition={{  duration: 2 }}
+>
     <Layout>
-      <CreateUser />
+      <CreateSiswa />
     </Layout>
+    </motion.div>
   );
 };
 
