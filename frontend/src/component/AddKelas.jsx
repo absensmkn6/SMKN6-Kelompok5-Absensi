@@ -1,25 +1,18 @@
 import axios from "axios"
 import React, { useState } from "react"
-// import { BrowserRouter as UseNavigate } from "react-router-dom"
-// import useNavigate from "react-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
-import SidebarAdmin from "../../../sidebar/sidebaradmin";
-import { Link } from "react-router-dom/cjs/react-router-dom";
+import { faUser, faCalendarCheck, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+import Sidebar from "./Sidebar";
+import { motion } from "framer-motion";
 
 
 
-const CreateSiswa = () => {
+const CreateKelas = () => {
 
-const [nis, setnis] = useState('')
-const [nama, setnama] = useState('')
-const [kelas, setkelas] = useState('')
-const [alamat, setalamat] = useState('')
-const [nohp, setnohp] = useState('')
-const [jurusan, setjurusan] = useState('')
-const [gender, setgender] = useState('')
-// const [ttl, setttl] = useState('')
+const [kode_kelas, setKodeKelas] = useState('')
+const [nama, setNama] = useState('')
+const [jumlah, setJumlah] = useState('')
 
 
 const history = useHistory();
@@ -29,9 +22,9 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     try{
     
-      await axios.post('http://localhost:5000/siswa', {nama, kelas, jurusan,  alamat, gender, nohp});
+      await axios.post('http://localhost:5000/kelas', {nama, jumlah});
 
-      history.push('/admin/siswa');
+      history.push('/admin/kelas');
    
     } catch (error) {
       console.log(error);
@@ -48,8 +41,15 @@ const handleSubmit = async (e) => {
 
     return(
         <>
+        <motion.div
+
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity:0 }}
+          transition={{  duration: 2 }}
+          >
         <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
-        <SidebarAdmin/>
+        <Sidebar/>
         <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
           <div class="bg-purple-700 dark:bg-gray-800 rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
@@ -101,7 +101,7 @@ const handleSubmit = async (e) => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Siswa</h3>
-                  <Link to="/create" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</Link>
+                  <a href="/../create/siswa"  className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
@@ -134,13 +134,17 @@ const handleSubmit = async (e) => {
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label><br></br>
-                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat" onChange={e => setalamat(e.target.value)}/>
-                            </div>
-                            <div class="form-group">
                                     <label>No.Telp</label><br></br>
                                     <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan No.Telp"  onChange={e => setnohp(e.target.value)} />
                                 </div>
+                            <div class="form-group">
+                                <label>Alamat</label><br></br>
+                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Alamat" onChange={e => setalamat(e.target.value)}/>
+                            </div>
+                            <div class="form-group hidden">
+                                    <label>Role</label><br></br>
+                                    <input type="hidden" value='siswa'/>
+                            </div>
                             {/* <div class="form-group">
                                 <label>TTL</label><br></br>
                                 <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal Lahir" onChange={e => setttl(e.target.value)}/>
@@ -155,6 +159,12 @@ const handleSubmit = async (e) => {
                                         <option value="L">Laki-Laki</option>
                                         <option value="P">Perempuan</option>
                                     </select>
+                                    
+                            </div>
+
+                            <div class="form-group">
+                                <label>Tanggal Lahir</label><br></br>
+                                <input type="date" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal" onChange={e => settgl(e.target.value)} />
                                     
                             </div>
                                 
@@ -184,8 +194,9 @@ const handleSubmit = async (e) => {
         </div>
         
       </div>
+      </motion.div>
 </>
     )
 }
 
-export default CreateSiswa
+export default CreateKelas

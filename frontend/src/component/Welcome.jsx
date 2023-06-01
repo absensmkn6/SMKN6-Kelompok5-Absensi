@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers,  faVirus, faSyringe, faCheck, faHandshake } from '@fortawesome/free-solid-svg-icons'
-import SidebarAdmin from '../sidebar/sidebaradmin';
 import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";

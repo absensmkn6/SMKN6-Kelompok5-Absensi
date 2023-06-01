@@ -60,7 +60,7 @@ DELETE  http://localhost:5000/kelas/1
 ###
 GET http://localhost:5000/user
 ###
-GET http://localhost:5000/user/b020e3d5-4721-4b60-9598-a7fa3012bf18
+GET http://localhost:5000/user/4
 ###
 POST http://localhost:5000/user
 Content-Type: application/json

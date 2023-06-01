@@ -138,7 +138,7 @@ const deleteSiswa = async (nis) =>{
                           <div class="flex items-center">
                             <div class="relative w-full">
                               <Link to="/show" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
-                              <Link to={`/edit/${siswa.nis}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</Link>
+                              <Link to={`/editSiswa/${siswa.nis}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</Link>
                               <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => deleteSiswa(siswa.nis)}>Hapus</button>
                             </div>
                           </div>

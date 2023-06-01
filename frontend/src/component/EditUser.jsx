@@ -19,7 +19,7 @@ const UpdateUser = () => {
   const [role, setRole] = useState('')
   const [user_kode, setUser_kode] = useState('')
   const [password, setPassword] = useState('')
-  const [confPassword, setconfPassword] = useState('')
+  // const [confPassword, setconfPassword] = useState('')
   // const [ttl, setttl] = useState('')
   
   useEffect(()=>{
@@ -30,7 +30,7 @@ const UpdateUser = () => {
     e.preventDefault();
     try{
       await axios.patch(`http://localhost:5000/user/${id}`, {
-        nama,  alamat, gender, nohp, tanggal_lahir, email,  role, user_kode, password, confPassword
+        nama, email, nohp, alamat, gender,  tanggal_lahir, role, user_kode, password
       });
   
       history.push('/admin/user');
@@ -52,7 +52,7 @@ const UpdateUser = () => {
       setRole(response.data.role);
       setUser_kode(response.data.user_kode);
       setPassword(response.data.password);
-      setconfPassword(response.data.confPassword);
+      // setconfPassword(response.data.confPassword);
   
   }
   
@@ -170,27 +170,10 @@ const UpdateUser = () => {
                             <label>Password</label><br></br>
                             <input type="password" className="input input-bordered mt-2 input-primary w-full max-w" onChange={e => setPassword(e.target.value)} name="password" value={password} />
                         </div>
-                        <div class="form-group">
+                        {/* <div class="form-group">
                             <label>Confirm Password</label><br></br>
                             <input type="password" className="input input-bordered mt-2 input-primary w-full max-w" onChange={e => setconfPassword(e.target.value)} name="confPassword" value={confPassword} />
-                        </div>
-                        {/* <div class="form-group">
-                            <label>TTL</label><br></br>
-                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Tanggal Lahir" onChange={e => setttl(e.target.value)}/>
                         </div> */}
-                        
-                        
-                        
-                        
-                            
-                            {/* <div class="form-group">
-                                <label>Username</label><br></br>
-                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Username" />
-                            </div>
-                            <div class="form-group">
-                                <label>Password</label><br></br>
-                                <input type="text" value={''} className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan Password"/>
-                            </div> */}
                     </div>
 
                 <div class="card-footer">

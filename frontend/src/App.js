@@ -3,39 +3,39 @@ import Login from "./login/Login";
 import Home from "./home/home";
 import { BrowserRouter, Switch, Route, NavLink, Redirect, Link } from "react-router-dom"; 
 import Register from "./login/Register";
-import Sidebar from "./sidebar/sidebarsiswa";
+// import Sidebar from "./sidebar/sidebarsiswa";
 
 //SIDEBAR
-import SidebarGuru from "./sidebar/sidebarguru";
-import SidebarSiswa from "./sidebar/sidebarsiswa";
-import SidebarAdmin from "./sidebar/sidebaradmin";
+// import SidebarGuru from "./sidebar/sidebarguru";
+// import SidebarSiswa from "./sidebar/sidebarsiswa";
+// import SidebarAdmin from "./sidebar/sidebaradmin";
 
 
-// SISWA
-import DashboardSiswa from "./siswa/dashboard"
-import ProfileSiswa from "./siswa/profile"
-import AbsenSiswa from "./siswa/absen"
+// // SISWA
+// import DashboardSiswa from "./siswa/dashboard"
+// import ProfileSiswa from "./siswa/profile"
+// import AbsenSiswa from "./siswa/absen"
 import LogoutSiswa from "./siswa/logout"
 
 //GURU
-import RekapGuru from "./guru/rekapguru"
-import ProfileGuru from "./guru/profile"
-import DashboardGuru from "./guru/dashboard"
-import LogoutGuru from "./guru/logout"
+// import RekapGuru from "./guru/rekapguru"
+// import ProfileGuru from "./guru/profile"
+// import DashboardGuru from "./guru/dashboard"
+// import LogoutGuru from "./guru/logout"
 
 //ADMIN
-import DataSiswa from "./admin/data/siswa";
-import DataKelas from "./admin/data/kelas";
-import DataGuru from "./admin/data/guru";
-import RekapAdmin from "./admin/rekap";
+// import DataSiswa from "./admin/data/siswa";
+// import DataKelas from "./admin/data/kelas";
+// import DataGuru from "./admin/data/guru";
+// import RekapAdmin from "./admin/rekap";
 import Logout from "./admin/logout";
-import CreateSiswa from "./admin/data/siswa/create";
-import UpdateSiswa from "./admin/data/siswa/update";
-import CreateKelas from "./admin/data/kelas/create";
-import UpdateKelas from "./admin/data/kelas/update";
-import CreateGuru from "./admin/data/guru/create";
-import UpdateGuru from "./admin/data/guru/update";
-import DataUser from "./admin/data/user";
+// import CreateSiswa from "./admin/data/siswa/create";
+// import UpdateSiswa from "./admin/data/siswa/update";
+// import CreateKelas from "./admin/data/kelas/create";
+// import UpdateKelas from "./admin/data/kelas/update";
+// import CreateGuru from "./admin/data/guru/create";
+// import UpdateGuru from "./admin/data/guru/update";
+// import DataUser from "./admin/data/user";
 import Dashboard from "./pages/Dashboard";
 import AddSiswa from "./pages/AddSiswa";
 import Siswa from "./pages/DataSiswa";
@@ -96,7 +96,7 @@ function App(){
         <Route component={EditSiswa} path="/editSiswa/:nis" />
         <Route component={EditUser} path="/editUser/:id" />
         <Route component={Profile} path="/siswa/profile" />
-        <Route component={Rekap} path="/admin/rekap" />
+        <Route component={Rekap} path="/admin/kelas" />
         <Route component={Absen} path="/siswa/absen" />
 
 
