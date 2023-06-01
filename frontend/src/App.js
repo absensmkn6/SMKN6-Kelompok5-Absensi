@@ -49,6 +49,8 @@ import Absen from "./pages/AbsenSiswa";
 import { AnimatePresence } from "framer-motion";
 import EditUser from "./pages/EditUser";
 import AddKelas from "./pages/AddKelas";
+import DaftarRekap from "./component/DaftarRekapAdmin";
+import DaftarRekapAdmin from "./pages/DaftarRekapAdmin";
 
 
 function App(){
@@ -95,6 +97,7 @@ function App(){
         <Route component={AddSiswa} path="/createSiswa" />
         <Route component={AddUser} path="/createUser" />
         <Route component={AddKelas} path="/createKelas" />
+        <Route component={DaftarRekapAdmin} path="/rekap/:id" />
         <Route component={EditSiswa} path="/editSiswa/:nis" />
         <Route component={EditUser} path="/editUser/:id" />
         <Route component={Profile} path="/siswa/profile" />
