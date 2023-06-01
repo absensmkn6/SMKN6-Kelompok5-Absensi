@@ -184,7 +184,7 @@ const handleSubmit = async (e) => {
                         </div>
 
                     <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-sm ml-8 mb-5">ADD</button>
+                    <button type="submit" class="btn btn-primary btn-sm ml-5 mb-5">ADD</button>
                     </div>
                 </form>
               </div>

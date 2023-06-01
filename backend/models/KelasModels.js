@@ -3,12 +3,9 @@ import db from "../config/Database.js";
 
 const {DataTypes} = Sequelize;
 
-const Kelas = db.define('kelas', {
-    kode_kelas: {
-        type: DataTypes.INTEGER,
-        primaryKey:true
-    },   
-    nama: DataTypes.STRING,
+const Kelas = db.define('kelas', {  
+    kelas: DataTypes.STRING,
+    jurusan: DataTypes.STRING,
     jumlah: DataTypes.INTEGER,
 }, {
     freezeTableName:true

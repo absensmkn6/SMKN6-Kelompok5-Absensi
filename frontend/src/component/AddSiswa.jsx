@@ -106,7 +106,7 @@ const handleSubmit = async (e) => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Siswa</h3>
-                  <a href="/../create/siswa"  className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+                  {/* <a href="/../create/siswa"  className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a> */}
                 </div>
                 
               </div>
@@ -184,7 +184,7 @@ const handleSubmit = async (e) => {
                         </div>
 
                     <div class="card-footer">
-                    <button  class="btn btn-primary btn-sm ml-8 mb-5">ADD</button>
+                    <button  class="btn btn-primary btn-sm ml-5 mb-5">ADD</button>
                     </div>
                 </form>
               </div>

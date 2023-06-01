@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Sidebar from "./Sidebar";
-
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 const RekapAdmin = () => {
+
+  const[DataKelas, setDataKelas] = useState([]);
+  const { kelas } = useSelector((state) => state.auth);
+  
+  
+  useEffect(()=>{
+    getKelas();
+  }, []);
+  
+  const getKelas = async () =>{
+    const response = await axios.get('http://localhost:5000/kelas');
+    setDataKelas(response.data)
+  };
+  
+  const deleteKelas = async (id) =>{
+    try{
+      await axios.delete(`http://localhost:5000/kelas/${id}`);
+      getKelas();
+    } catch (error){
+      console.log(error);
+    }
+  }
+
   return (
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
         <Sidebar/>
@@ -56,60 +80,51 @@ const RekapAdmin = () => {
         </div>
         <div>
         
-        <div class="grid  p-4 gap-4">
+        <div class="p-4 gap-4">
           <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="flex flex-wrap items-center px-4 py-2">
-                <div class="relative w-full max-w-full flex-grow flex-1">
-                  <h3 className="text-xl text-white mb-3 mt-2"> Pilih Kelas</h3>
+                <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
+                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Pilih Kelas</h3>
+                  <a href="/createKelas" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
               <div class="block w-full overflow-x-auto">
-                <table class="items-center w-full bg-transparent border-collapse">
+              <table class="items-center w-full bg-transparent border-collapse">
                   <thead>
                     <tr>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">No</th>
                       <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Kelas</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
+                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">TTL</th> */}
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Jurusan</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Jumlah Murid</th>
+                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">X RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      <div class="flex items-center">
-                          <div class="relative w-full">
-                            <Link to="#" className="btn btn-outline btn-primary btn-sm mr-2" htmlFor="modalLihat">Lihat Rekap</Link>
+
+                  {
+                    DataKelas.map((kelas, index)=>(
+                      <tr key={kelas.id} class="text-gray-700 dark:text-gray-100">
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{index+1}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{kelas.kelas}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{kelas.jurusan}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{kelas.jumlah}</td>
+                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                          <div class="flex items-center">
+                            <div class="relative w-full">
+                              <Link to={`/rekap/${kelas.id}`} className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Lihat Rekap</Link>
+                              <Link to={`/editKelas/${kelas.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
+                              <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => deleteKelas(kelas.id)}>Hapus</button>
+                            </div>
                           </div>
-                        </div>
-                      </td>
+                        </td>
                     </tr>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">2</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XI RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      <div class="flex items-center">
-                          <div class="relative w-full">
-                            <Link to="#" className="btn btn-outline btn-primary btn-sm mr-2" htmlFor="modalLihat">Lihat Rekap</Link>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr class="text-gray-700 dark:text-gray-100">
-                      <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">3</th>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">XII RPL</td>
-                      <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                      <div class="flex items-center">
-                          <div class="relative w-full">
-                            <Link to="#" className="btn btn-outline btn-primary btn-sm mr-2" htmlFor="modalLihat">Lihat Rekap</Link>
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
+                    ))}
+                    
                   </tbody>
-                </table> 
+                </table>
               </div>
             </div>
           </div>

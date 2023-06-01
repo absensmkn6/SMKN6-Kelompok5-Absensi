@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { motion } from "framer-motion";
-import CreateSiswa from "../component/AddSiswa";
+import CreateKelas from "../component/AddKelas";
 
-const AddSiswa = () => {
+const AddKelas = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { isError, user } = useSelector((state) => state.auth);
@@ -32,10 +32,10 @@ const AddSiswa = () => {
     transition={{  duration: 2 }}
 >
     <Layout>
-      <CreateSiswa />
+      <CreateKelas />
     </Layout>
     </motion.div>
   );
 };
 
-export default AddSiswa;
+export default AddKelas;

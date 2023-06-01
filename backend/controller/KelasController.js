@@ -9,11 +9,12 @@ export const getKelas = async(req, res) =>{
     }
 }
 
-export const getKelasByKodeKelas= async(req, res) =>{
+export const getKelasById = async(req, res) =>{
     try{
         const response = await Kelas.findOne({
+            attributes:['id','kelas','jurusan','jumlah'],
             where:{
-                kode_kelas: req.params.kode_kelas
+                id: req.params.id
             }
         });
         res.status(200).json(response);
@@ -35,7 +36,7 @@ export const UpdateKelas= async(req, res) =>{
     try{
         await Kelas.update(req.body,{
             where:{
-                kode_kelas:req.params.kode_kelas
+                id:req.params.id
             }
     });
         res.status(201).json({msg: "Berhasil Update Kelas"});
@@ -45,10 +46,16 @@ export const UpdateKelas= async(req, res) =>{
 }
 
 export const DeleteKelas= async(req, res) =>{
+    const kelas = await Kelas.findOne({
+        where:{
+            id: req.params.id
+        }
+    });
+    if(!kelas) return res.status(200).json({msg: "Kelas tidak ditemukan"});
     try{
         await Kelas.destroy({
             where:{
-                kode_kelas:req.params.kode_kelas
+                id: kelas.id
             }
     });
         res.status(201).json({msg: "Berhasil hapus Kelas"});

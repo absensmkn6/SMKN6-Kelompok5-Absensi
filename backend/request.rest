@@ -39,16 +39,17 @@ POST http://localhost:5000/kelas
 Content-Type: application/json
 
 {
-    "nama": "XI",
+    "kelas": "X",
+    "jurusan": "PPLG",
     "jumlah": "36"
 }
 ###
-PATCH  http://localhost:5000/kelas/1000
+PATCH  http://localhost:5000/kelas/2
 Content-Type: application/json
 
 {
-    "kode_kelas": "1",
-    "nama": "XI",
+    "kelas": "X",
+    "jurusan": "PPLG",
     "jumlah": "36"
 
 }
@@ -60,7 +61,7 @@ DELETE  http://localhost:5000/kelas/1
 ###
 GET http://localhost:5000/user
 ###
-GET http://localhost:5000/user/4
+GET http://localhost:5000/user/9
 ###
 POST http://localhost:5000/user
 Content-Type: application/json
@@ -91,7 +92,7 @@ Content-Type: application/json
     "role": "admin"
 }
 ###
-DELETE http://localhost:5000/user/3
+DELETE http://localhost:5000/user/9
 # LOGIN
 ###
 POST http://localhost:5000/login
