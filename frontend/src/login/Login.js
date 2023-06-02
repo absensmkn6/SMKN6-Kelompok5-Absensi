@@ -79,7 +79,7 @@ import logoabsen from '../images/logoabsen.png';
     
       useEffect(() => {
         if (user || isSuccess) {
-          history.push("/Dashboard");
+          history.push("/dashboard");
         }
         
         dispatch(reset());
