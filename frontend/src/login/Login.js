@@ -74,7 +74,7 @@ import { motion } from 'framer-motion'
     
       useEffect(() => {
         if (user || isSuccess) {
-          history.push("/dashboard");
+          history.push("/Dashboard");
         }
         
         dispatch(reset());
