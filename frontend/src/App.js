@@ -51,6 +51,7 @@ import EditUser from "./pages/EditUser";
 import AddKelas from "./pages/AddKelas";
 import DaftarRekap from "./component/DaftarRekapAdmin";
 import DaftarRekapAdmin from "./pages/DaftarRekapAdmin";
+import DetailUser from "./component/DetailUser";
 
 
 function App(){
@@ -103,9 +104,9 @@ function App(){
         <Route component={Profile} path="/siswa/profile" />
         <Route component={Rekap} path="/admin/kelas" />
         <Route component={Absen} path="/siswa/absen" />
-
-
-
+        <Route component={DetailUser} path="/detailuser" />
+        
+        
 
         </Switch>
         </AnimatePresence>
