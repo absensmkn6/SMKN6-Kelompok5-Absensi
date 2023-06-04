@@ -159,7 +159,7 @@ const handleDelete = (id) => {
                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div class="flex items-center">
                             <div class="relative w-full">
-                              <Link to="/show" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
+                              <Link to={`/detailUser/${user.id}`} className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
                               <Link to={`/editUser/${user.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
                               <button className="btn btn-outline btn-error btn-sm mr-2" onClick={() => handleDelete(user.id)}>Hapus</button>
                             </div>

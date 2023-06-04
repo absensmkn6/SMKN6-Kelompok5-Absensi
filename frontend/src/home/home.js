@@ -74,7 +74,7 @@ const Home = () => {
     <img src={banner} className="max-w-sm rounded-lg shadow-2xl" />
     <div>
       <h1 className="text-5xl font-bold">Absentra</h1>
-      <p className="py-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p className="py-6">Absentra adalah Website Absensi sederhana yang digunakan untuk Mengisi kehadiran Absen dengan Cepat dan Aman. Absentra menghadirkan User Interface dan Experiences yang Effective bagi User</p>
       <Link to="/register" className="btn btn-primary">Get Started</Link>
     </div>
   </div>
