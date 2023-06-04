@@ -177,7 +177,7 @@ const UpdateUser = () => {
                     </div>
 
                 <div class="card-footer">
-                <button  class="btn btn-primary btn-sm ml-8 mb-5">Update</button>
+                <button  class="btn btn-primary btn-sm ml-5 mb-5">Update</button>
                 </div>
             </form>
           </div>

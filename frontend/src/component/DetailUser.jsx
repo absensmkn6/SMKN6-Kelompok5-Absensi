@@ -10,6 +10,57 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 const DetailUser = () => {
+
+
+  const {id} = useParams();
+  const [nama, setNama] = useState('')
+  const [email, setEmail] = useState('')
+  const [nohp, setnohp] = useState('')
+  const [alamat, setalamat] = useState('')
+  const [gender, setgender] = useState('')
+  const [tanggal_lahir, settgl] = useState('')
+  const [role, setRole] = useState('')
+  const [user_kode, setUser_kode] = useState('')
+  const [password, setPassword] = useState('')
+  // const [confPassword, setconfPassword] = useState('')
+  // const [ttl, setttl] = useState('')
+  
+  useEffect(()=>{
+    getUserById();
+  }, []);
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+      await axios.patch(`http://localhost:5000/user/${id}`, {
+        nama, email, nohp, alamat, gender,  tanggal_lahir, role, user_kode, password
+      });
+  
+      history.push('/admin/user');
+   
+    } catch (error) {
+      console.log(error);
+    }
+  
+  };
+  
+  const getUserById = async () => {
+      const response = await axios.get(`http://localhost:5000/user/${id}`);
+      setNama(response.data.nama);
+      setEmail(response.data.email);
+      setnohp(response.data.nohp);
+      setalamat(response.data.alamat);
+      setgender(response.data.gender);
+      settgl(response.data.tanggal_lahir);
+      setRole(response.data.role);
+      setUser_kode(response.data.user_kode);
+      setPassword(response.data.password);
+      // setconfPassword(response.data.confPassword);
+  
+  }
+  
+  const history = useHistory();
+
   return (
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
     <Sidebar/>
@@ -73,51 +124,51 @@ const DetailUser = () => {
                     <div class="card-body">
                         <div class="form-group">
                             <label>ID</label><br></br>
-                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={id} readOnly />
                         </div>
                         <div class="form-group">
                             <label>Nama</label><br></br>
-                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={nama} readOnly />
                         </div>
                         <div class="form-group">
                             <label>Email</label><br></br>
-                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={email} readOnly />
                         </div>
                         
                         <div class="form-group">
                             <label>No Hp</label><br></br>
-                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w"readOnly  />
+                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={nohp} readOnly  />
                         </div>
                         <div class="form-group">
                             <label>Alamat</label><br></br>
-                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={alamat} readOnly />
                         </div>
                         <div class="form-group">
                             <label>Jenis Kelamin</label><br></br>
-                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={gender} readOnly />
                         </div>
                         <div class="form-group">
                             <label>Tanggal Lahir</label><br></br>
-                            <input type="date" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="date" className="input input-bordered mt-2 input-primary w-full max-w" value={tanggal_lahir} readOnly />
                         </div>
                         <div class="form-group">
                             <label>Role</label><br></br>
-                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" value={role} readOnly />
                         </div>
                         
                         <div class="form-group">
                             <label>User Kode</label><br></br>
-                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w"readOnly  />
+                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={user_kode} readOnly  />
                         </div>
 
                         <div class="form-group">
                             <label>Password</label><br></br>
-                            <input type="password" className="input input-bordered mt-2 input-primary w-full max-w" readOnly />
+                            <input type="password" className="input input-bordered mt-2 input-primary w-full max-w" value={password} readOnly />
                         </div>
                     </div>
 
                 <div class="card-footer ml-10">
-                    <Link to="/admin/user" className="btn btn-primary btn-sm ml-8 mb-5 ">Oke</Link>
+                    <Link to="/admin/user" className="btn btn-primary btn-sm ml-5 mb-5 ">Oke</Link>
                 </div>
             </form>
           </div>
