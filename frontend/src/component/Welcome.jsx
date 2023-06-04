@@ -25,44 +25,44 @@ const Welcome = () => {
       
       <div class="h-full ml-14 mt-14 mb-10 md:ml-64">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-4 gap-4">
-        <div class="bg-purple-700 dark:bg-gray-800 rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+        <div class="bg-indigo-500 dark:bg-gray-800 rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
           <div class="flex justify-center items-center w-14 h-14 rounded-full bg-gradient-to-tl from-red-600 to-orange-600 transition-all duration-300 transform group-hover:rotate-12">
           <FontAwesomeIcon icon={faUsers} className="w-7 h-7" />
           </div>
           <div class="text-right">
             <p class="text-2xl">Total Siswa</p>
-            <span class="text-sm font-bold leading-normal text-emerald-500">100</span>
+            <span class="text-sm font-bold leading-normal text-gray-300 dark:text-emerald-500">100</span>
           </div>
         </div>
-        <div class="bg-purple-700 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+        <div class="bg-indigo-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
           <div class="flex justify-center items-center w-14 h-14 bg-gradient-to-tl from-emerald-500 to-teal-400 rounded-full transition-all duration-300 transform group-hover:rotate-12">
           <FontAwesomeIcon icon={faSchool} className="w-7 h-7" />
             
           </div>
           <div class="text-right">
             <p class="text-2xl">Total Kelas</p>
-            <span class="text-sm font-bold leading-normal text-emerald-500">8</span>
+            <span class="text-sm font-bold leading-normal text-gray-300 dark:text-emerald-500">8</span>
 
           </div>
         </div>
-        <div class="bg-purple-700 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+        <div class="bg-indigo-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
           <div class="flex justify-center items-center w-14 h-14 bg-gradient-to-tl from-orange-500 to-yellow-500 rounded-full transition-all duration-300 transform group-hover:rotate-12">
           <FontAwesomeIcon icon={faUser} className="w-7 h-7" />
 
           </div>
           <div class="text-right">
             <p class="text-2xl">Total Guru</p>
-            <span class="text-sm font-bold leading-normal text-emerald-500">40</span>
+            <span class="text-sm font-bold leading-normal text-gray-300 dark:text-emerald-500">40</span>
           </div>
         </div>
-        <div class="bg-purple-700 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
+        <div class="bg-indigo-500 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
           <div class="flex justify-center items-center w-14 h-14 bg-gradient-to-tl from-blue-500 to-violet-500 rounded-full transition-all duration-300 transform group-hover:rotate-12">
           <FontAwesomeIcon icon={faCalendarCheck} className="w-7 h-7" />
 
           </div>
           <div class="text-right">
             <p class="text-2xl">Absen Hari ini</p>
-            <span class="text-sm font-bold leading-normal text-emerald-500">95 Murid</span>
+            <span class="text-sm font-bold leading-normal text-gray-300 dark:text-emerald-500">95 Murid</span>
           </div>
         </div>
       </div>
@@ -182,7 +182,7 @@ const Welcome = () => {
                   <div class="flex-grow flex items-center border-b border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                     <div class="flex-grow flex justify-between items-center">
                       <div class="self-center">
-                        <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Nama)</a> Menambahkankan postingan
+                        <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">{user && user.nama}</a> memeriksa rekap
                       </div>
                       <div class="flex-shrink-0 ml-2">
                         <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0">
@@ -199,7 +199,7 @@ const Welcome = () => {
                   <div class="flex-grow flex items-center border-gray-100 text-sm text-gray-600 dark:text-gray-50 py-2">
                     <div class="flex-grow flex justify-between items-center">
                       <div class="self-center">
-                        <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Nama)</a> Membuat Pengumuman
+                        <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0">{user && user.nama}</a> Membuat Pengumuman
                       </div>
                       <div class="flex-shrink-0 ml-2">
                         <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0">
@@ -221,7 +221,7 @@ const Welcome = () => {
                   <div class="flex-grow flex items-center border-gray-100 text-sm text-gray-600 dark:text-gray-50 py-2">
                     <div class="flex-grow flex justify-between items-center">
                       <div class="self-center">
-                        <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Penjelasan Update terbaru)</a>
+                        <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Pembaruan keamanan data)</a>
                       </div>
                       <div class="flex-shrink-0 ml-2">
                         <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0">
@@ -258,7 +258,7 @@ const Welcome = () => {
               </div>
               <div class="text-right">
                 <p class="text-2xl">Total Hadir</p>
-                <span class="text-sm font-bold leading-normal text-emerald-500">Penjelasan</span>
+                <span class="text-sm font-bold leading-normal text-emerald-500">30</span>
               </div>
             </div>
             <div class="bg-purple-700 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
@@ -268,7 +268,7 @@ const Welcome = () => {
               </div>
               <div class="text-right">
                 <p class="text-2xl">Total Izin</p>
-                <span class="text-sm font-bold leading-normal text-emerald-500">Penjelasan</span>
+                <span class="text-sm font-bold leading-normal text-emerald-500">1</span>
   
               </div>
             </div>
@@ -279,7 +279,7 @@ const Welcome = () => {
               </div>
               <div class="text-right">
                 <p class="text-2xl">Total Sakit</p>
-                <span class="text-sm font-bold leading-normal text-emerald-500">Penjelasan</span>
+                <span class="text-sm font-bold leading-normal text-emerald-500">0</span>
               </div>
             </div>
             <div class="bg-purple-700 dark:bg-gray-800 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-600 dark:border-gray-600 text-white font-medium group">
@@ -289,16 +289,16 @@ const Welcome = () => {
               </div>
               <div class="text-right">
                 <p class="text-2xl">Logout</p>
-                <span class="text-sm font-bold leading-normal text-emerald-500">Penjelasan</span>
+                <span class="text-sm font-bold leading-normal text-emerald-500">keluar</span>
               </div>
             </div>
           </div>
           <div>
           <div class = "p-4 mb-4 ml-4 mr-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
-              <span class = "font-medium">Info alert!</span> Alert Pengumuman
+              <span class = "font-medium">Perubahan Jadwal Pelajaran:</span> Mulai Senin, 5 Juni 2023, terdapat perubahan jadwal pelajaran untuk kelas 11 RPL. 
           </div>
           <div class = "p-4 mb-4 ml-4 mr-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
-              <span class = "font-medium">Danger alert!</span> Alert Pengumuman
+              <span class = "font-medium">Penutupan Sementara Akses Kantin:</span> Mulai tanggal 7 Juni hingga 14 Juni 2023, akses kantin akan ditutup sementara karena renovasi.
           </div>
           <div class="grid grid-cols-1 lg:grid-cols-2 p-4 gap-4">
             <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
@@ -414,7 +414,7 @@ const Welcome = () => {
                       <div class="flex-grow flex items-center border-b border-gray-100 dark:border-gray-400 text-sm text-gray-600 dark:text-gray-100 py-2">
                         <div class="flex-grow flex justify-between items-center">
                           <div class="self-center">
-                            <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Nama)</a> Menambahkankan postingan
+                            <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">{user && user.nama}</a> telah absen
                           </div>
                           <div class="flex-shrink-0 ml-2">
                             <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0">
@@ -431,7 +431,7 @@ const Welcome = () => {
                       <div class="flex-grow flex items-center border-gray-100 text-sm text-gray-600 dark:text-gray-50 py-2">
                         <div class="flex-grow flex justify-between items-center">
                           <div class="self-center">
-                            <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Nama)</a> Membuat Pengumuman
+                            <a class="font-medium text-gray-800 dark:text-gray-50 dark:hover:text-gray-100" href="#0">Pengumuman</a> baru telah dibuat
                           </div>
                           <div class="flex-shrink-0 ml-2">
                             <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0">
@@ -453,7 +453,7 @@ const Welcome = () => {
                       <div class="flex-grow flex items-center border-gray-100 text-sm text-gray-600 dark:text-gray-50 py-2">
                         <div class="flex-grow flex justify-between items-center">
                           <div class="self-center">
-                            <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Penjelasan Update terbaru)</a>
+                            <a class="font-medium text-gray-800 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-100" href="#0">(Pembaruan Keamanan data)</a>
                           </div>
                           <div class="flex-shrink-0 ml-2">
                             <a class="flex items-center font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500" href="#0">

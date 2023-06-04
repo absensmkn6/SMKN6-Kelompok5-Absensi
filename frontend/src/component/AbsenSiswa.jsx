@@ -1,8 +1,15 @@
 import React from "react";
 import Sidebar from "./Sidebar";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useDispatch, useSelector } from "react-redux";
+import { LogOut, reset } from "../features/authSlices";
 
 
 const AbsenSiswa = () => {
+    
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const { user } = useSelector((state) => state.auth);
 
     var showdate=new Date();
     var displaytodaysdate=showdate.getDate()+'/'+(showdate.getMonth()+1)+'/'+showdate.getFullYear();
@@ -73,10 +80,10 @@ const AbsenSiswa = () => {
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">1</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                 </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.38.57:10/04/2023</td>
@@ -85,10 +92,10 @@ const AbsenSiswa = () => {
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">2</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                 </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.39.37:11/04/2023</td>
@@ -97,10 +104,10 @@ const AbsenSiswa = () => {
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">3</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                     </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.41.23:12/04/2023</td>
@@ -109,34 +116,34 @@ const AbsenSiswa = () => {
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">4</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                 </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.42.07:13/04/2023</td>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Hadir</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                         </tr>
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">5</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                 </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.46.54:14/04/2023</td>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Hadir</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                         </tr>
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">6</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                 </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.58.47:17/04/2023</td>
@@ -145,10 +152,10 @@ const AbsenSiswa = () => {
 
                                         <tr class="text-gray-700 dark:text-gray-100">
                                             <th class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">7</th>
-                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">12345</td>
+                                            <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.user_kode}</td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <div class="flex items-center">
-                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Nama Siswa</td>
+                                                <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{user && user.nama}</td>
                                                 </div>
                                             </td>
                                             <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">06.58.47:18/04/2023</td>

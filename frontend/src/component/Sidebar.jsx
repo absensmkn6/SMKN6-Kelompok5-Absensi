@@ -39,10 +39,10 @@ const Sidebar = () => {
       {user && user.role === "admin" && (
       <div>
         <div class="fixed w-full flex items-center justify-between h-14 text-white z-10">
-          <div class="flex items-center justify-start md:justify-center w-full md:w-64 h-14 bg-purple-900 dark:bg-gray-900 border-none">
+          <div class="flex items-center justify-start md:justify-center w-full md:w-64 h-14 bg-indigo-500 dark:bg-gray-900 border-none">
           <b><p class="text-1xl ml-1">Dashboard</p></b>
           </div>
-        <div class="flex justify-between items-center flex-grow h-14 bg-purple-900 dark:bg-gray-900 header-right">
+        <div class="flex justify-between items-center flex-grow h-14 bg-indigo-500 dark:bg-gray-900 header-right">
           <nav class = "flex px-5 py-3 text-gray-700  rounded-lg bg-opacity-50 bg-gray-50 dark:bg-[#1E293B] " aria-label="Breadcrumb">
             <ol class = "inline-flex items-center space-x-1 md:space-x-3">
               <li class = "inline-flex items-center">
@@ -76,7 +76,7 @@ const Sidebar = () => {
           </ul>
         </div>
           </div>
-          <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-purple-900 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
+          <div class="fixed flex flex-col top-14 left-0 w-14 hover:w-64 md:w-64 bg-indigo-500 dark:bg-gray-900 h-full text-white transition-all duration-300 border-none z-10 sidebar">
         <div class="overflow-y-auto overflow-x-hidden flex flex-col justify-between flex-grow">
           <ul class="flex flex-col py-4 space-y-1">
             
@@ -101,7 +101,7 @@ const Sidebar = () => {
                 <span class="inline-flex justify-center items-center ml-4">
                 <FontAwesomeIcon icon={faTachometerAlt} className="w-5 h-5" />
                 </span>
-                <span class="ml-4 text-sm tracking-wide truncate">Dashboard</span>
+                <span class="ml-4 text-sm tracking-wide truncate ">Dashboard</span>
               </a>
             </li>
             )}
@@ -115,10 +115,10 @@ const Sidebar = () => {
                 <div className="dropdown dropdown-arrow">
                   <label tabIndex={0} className="ml-4">Data<label></label></label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                          <li><Link to="/admin/siswa">Data Siswa</Link></li>
+                          <li><Link to="/admin/siswa" className="text-black dark:text-white">Data Siswa</Link></li>
                           {/* <li><Link to="/admin/kelas">Data Kelas</Link></li>
                           <li><Link to="/admin/guru">Data Guru</Link></li> */}
-                          <li><Link to="/admin/user">Data User</Link></li>
+                          <li><Link to="/admin/user"  className="text-black dark:text-white">Data User</Link></li>
                     </ul>
                 </div>
               </div>

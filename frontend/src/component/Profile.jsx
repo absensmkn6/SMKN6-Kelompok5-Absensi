@@ -52,14 +52,13 @@ const ProfileSiswa = () => {
                 </div>
           
                 <div class="my-4"></div>
-         
+{/*          
                 <div class="bg-violet-700 dark:bg-gray-800 p-3 hover:shadow border-white rounded-md">
 
 
-                    {/* The button to open modal */}
-                    <label htmlFor="my-modal" className="btn bg-violet-700 dark:bg-gray-800 p-3 hover:shadow border-white rounded-md">Username dan password</label>
+                    <label htmlFor="my-modal" className="btn bg-violet-700 dark:bg-gray-800 p-3 mb-4 hover:shadow border-white rounded-md">Username dan Email</label>
 
-                    {/* Put this part before </body> tag */}
+      
                     <input type="checkbox" id="my-modal" className="modal-toggle" />
                     <div className="modal">
                     <div className="modal-box">
@@ -67,11 +66,11 @@ const ProfileSiswa = () => {
                                             <div class="card-body">
                                             <div class="form-group">
                                                 <label>Username</label><br></br>
-                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly value={'17058'} />
+                                                <input type="text" className="input input-bordered mt-2 input-primary w-full max-w" readOnly value={user && user.user_kode} />
                                             </div>
                                             <div class="form-group">
-                                                <label>Password</label><br></br>
-                                                <input type="text" value={'17058'} className="input input-bordered mt-2 input-primary w-full max-w"readOnly />
+                                                <label>Email</label><br></br>
+                                                <input type="text" value={user && user.email} className="input input-bordered mt-2 input-primary w-full max-w"readOnly />
                                             </div>
                                     </div>
                             </form>
@@ -80,13 +79,13 @@ const ProfileSiswa = () => {
                         </div>
                     </div>
                     </div>
-                </div>
+                </div> */}
   
             </div>
 
-            <div class="w-full md:w-9/12 mx-2 h-64">
+            <div class="w-full md:w-9/12 mx-2 h-64 md:h-64 sm:mt-6">
               
-                <div class="rounded-md bg-violet-700 dark:bg-gray-800 p-3 shadow-sm ">
+                <div class="rounded-md bg-violet-700 dark:bg-gray-800 p-3 shadow-sm space-y-4 ">
                     <div class="flex items-center space-x-2 font-semibold text-white leading-8">
                         <span clas="text-green-500">
                             <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -98,7 +97,7 @@ const ProfileSiswa = () => {
                         <span class="tracking-wide">Profile</span>
                     </div>
                     <div class="text-gray-400">
-                        <div class="grid md:grid-cols-2 text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 text-sm">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Nama Panggilan:</div>
                                 <div class="px-4 py-2">{user && user.nama}</div>

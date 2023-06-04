@@ -43,7 +43,7 @@ const Register = () => {
         <>
           <section className=" min-h-screen flex items-center justify-center">
           {/* login container */}
-          <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
+          <div className="bg-gray-400 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
           
             {/* form */}
             <div className="md:w-1/2 px-8 md:px-16">
