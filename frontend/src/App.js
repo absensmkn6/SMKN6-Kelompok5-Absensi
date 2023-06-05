@@ -104,22 +104,20 @@ function App(){
         <Route component={User} path="/admin/user" />
         <Route component={Guru} path="/admin/guru" />
         <Route component={Logout} path="/logout" />
-        <Route component={AddSiswa} path="/createSiswa" />
-        <Route component={AddGuru} path="/createGuru" />
-        <Route component={AddUser} path="/createUser" />
-        <Route component={AddKelas} path="/createKelas" />
+        <Route component={AddSiswa} path="/create/siswa" />
+        <Route component={AddGuru} path="/create/guru" />
+        <Route component={AddUser} path="/create/user" />
+        <Route component={AddKelas} path="/create/kelas" />
         <Route component={DaftarRekapAdmin} path="/rekap/:id" />
-        <Route component={EditSiswa} path="/editSiswa/:nis" />
-        <Route component={EditUser} path="/editUser/:id" />
-        <Route component={EditGuru} path="/editGuru/:id" />
+        <Route component={EditSiswa} path="/edit/siswa/:nis" />
+        <Route component={EditUser} path="/edit/user/:id" />
+        <Route component={EditGuru} path="/edit/guru/:id" />
         <Route component={Profile} path="/siswa/profile" />
         <Route component={Rekap} path="/admin/kelas" />
         <Route component={Absen} path="/siswa/absen" />
-        <Route component={DetailUser} path="/detailUser/:id" />
-        <Route component={GuruDetail} path="/detailGuru/:id" />
-        <Route component={SiswaDetail} path="/detailSiswa/:nis" />
-        <Route component={GuruRekap} path="/guru/rekap" />
-
+        <Route component={DetailUser} path="/detail/user/:id" />
+        <Route component={GuruDetail} path="/detail/guru/:id" />
+        <Route component={SiswaDetail} path="/detail/siswa/:nis" />
         
         
 
