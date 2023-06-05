@@ -133,7 +133,7 @@ const handleDelete = (nis) => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data Siswa</h3>
-                  <a href="/createSiswa" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+                  <a href="/create/siswa" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
@@ -174,8 +174,8 @@ const handleDelete = (nis) => {
                         <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                           <div class="flex items-center">
                             <div class="relative w-full">
-                              <Link to={`/detailSiswa/${siswa.nis}`} className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
-                              <Link to={`/editSiswa/${siswa.nis}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</Link>
+                              <Link to={`/detail/siswa/${siswa.nis}`} className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Detail</Link>
+                              <Link to={`/edit/siswa/${siswa.nis}`} className="btn btn-outline btn-warning btn-sm mr-2" htmlFor="modalEdit">Edit</Link>
                               <button className="btn btn-outline btn-error btn-sm mr-2" onClick={() => handleDelete(siswa.nis)}>Hapus</button>
                             </div>
                           </div>
