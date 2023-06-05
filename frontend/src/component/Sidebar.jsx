@@ -116,6 +116,7 @@ const Sidebar = () => {
                   <label tabIndex={0} className="ml-4">Data<label></label></label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                           <li><Link to="/admin/siswa" className="text-black dark:text-white">Data Siswa</Link></li>
+                          <li><Link to="/admin/guru" className="text-black dark:text-white">Data Guru</Link></li>
                           {/* <li><Link to="/admin/kelas">Data Kelas</Link></li>
                           <li><Link to="/admin/guru">Data Guru</Link></li> */}
                           <li><Link to="/admin/user"  className="text-black dark:text-white">Data User</Link></li>
@@ -336,7 +337,7 @@ const Sidebar = () => {
             </a>
           </li>
           <li>
-            <a href="../guru/rekapguru" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
+            <a href="../guru/gururekap" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-blue-800 dark:hover:bg-gray-600 text-white-600 hover:text-white-800 border-l-4 border-transparent hover:border-blue-500 dark:hover:border-gray-800 pr-6">
               <span class="inline-flex justify-center items-center ml-4">
               <FontAwesomeIcon icon={faCalendarCheck} className="w-5 h-5" />
               </span>

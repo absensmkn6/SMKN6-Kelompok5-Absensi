@@ -476,6 +476,8 @@ const Welcome = () => {
         </div>
     )}
     </div>
+
+    {/* DASHBOARD GURU */}
     <div>
     {user && user.role === "guru" && (
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">

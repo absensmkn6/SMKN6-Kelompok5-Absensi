@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import session from "express-session";
 import SiswaRoute from "./routes/SiswaRoute.js";
+import GuruRoute from "./routes/GuruRoute.js";
 import UserRoute from "./routes/UserRoute.js";
 import KelasRoute from "./routes/KelasRoute.js";
 import AuthRoute from "./routes/AuthRoute.js";
@@ -39,6 +40,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use(SiswaRoute);
+app.use(GuruRoute);
 app.use(KelasRoute);
 app.use(UserRoute);
 app.use(AuthRoute);
