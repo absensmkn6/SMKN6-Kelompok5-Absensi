@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome, faUser, faCalendarCheck,  faSignOutAlt, faGraduationCap, faSchool, faUsers } from '@fortawesome/free-solid-svg-icons'
-import swal from 'sweetalert';
+
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import Sidebar from "./Sidebar";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
 
-const RekapGuru = () => {
+const GuruRekap = () => {
 
-  const[DataKelas, setDataKelas] = useState([]);
+  const[DataRekap, setDataRekap] = useState([]);
   const { kelas } = useSelector((state) => state.auth);
   
   
@@ -20,54 +20,79 @@ const RekapGuru = () => {
   
   const getKelas = async () =>{
     const response = await axios.get('http://localhost:5000/kelas');
-    setDataKelas(response.data)
+    setDataRekap(response.data)
   };
   
-  const deleteKelas = async (id) => {
-    try {
+  const deleteKelas = async (id) =>{
+    try{
       await axios.delete(`http://localhost:5000/kelas/${id}`);
       getKelas();
-    } catch (error) {
+    } catch (error){
       console.log(error);
     }
   }
+
+
   
-  const handleDelete = (id) => {
-    swal({
-      title: "Apakah anda yakin?",
-      text: "Data kelas akan dihapus permanen!",
-      icon: "warning",
-      buttons: {
-        cancel: {
-          text: "Cancel",
-          value: null,
-          visible: true,
-        },
-        confirm: {
-          text: "Delete",
-          value: true,
-          visible: true,
-          className: "btn-danger",
-        }
-      },
-      dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        deleteKelas(id).then(() => {
-          swal("Sukses! Data Kelas telah dihapus", {
-            icon: "success",
-          });
-        }).catch((error) => {
-          console.log(error);
-          swal("Oops! Something went wrong.", {
-            icon: "error",
-          });
-        });
+
+    const data = [
+      { id: 1, nama: 'ADITYA HARISAPUTRO' },
+      { id: 2, nama: 'AGNES CHRISFANDIKA CESARSARI' },
+      { id: 3, nama: 'AIRA DESTA SETYAWAN' },
+      { id: 4, nama: 'ALYA CHEVA AZAHRA' },
+      { id: 5, nama: 'ANISA RAMADANI' },
+      { id: 6, nama: 'ARDIANSYAH ICHWAN PUTRA' },
+      { id: 7, nama: 'ARZAKI MUHAMAD FADIL' },
+      { id: 8, nama: 'BARIK OCTAVIA ADITAMA PUTRA' },
+      { id: 9, nama: 'DESHEA NICO MAULANA' },
+      { id: 10, nama: 'DEWI SEPTIANI' },
+      { id: 11, nama: 'DIDAN DERMAWAN' },
+      { id: 12, nama: 'DIMAS ULUNG SEPTIAJI' },
+      { id: 13, nama: 'FRANCISCO DESTALIANO PUTRA SADEWA' },
+      { id: 14, nama: 'GABRIEL HANDARA PUTRA NUGRAHA' },
+      { id: 15, nama: 'ILHAM NUGROHO' },
+      { id: 16, nama: 'INDAR DWI PRAMESTHI' },
+      { id: 17, nama: 'JESSYCHA DEVI RUDISTA' },
+      { id: 18, nama: 'KAYLA RANIAHASNA ARYADEWI' },
+      { id: 19, nama: 'LUTHFIYA ZUHURA SYIFA FUADAH' },
+      { id: 20, nama: 'MAISYA FARADILLA' },
+      { id: 21, nama: 'MENTARI DWI PRASTIWI' },
+      { id: 22, nama: 'MERZY ANJANI RATNA GANADI' },
+      { id: 23, nama: 'MUSTOFA ALI' },
+      { id: 24, nama: 'RADITYA ABDEE PRATAMA' },
+      { id: 25, nama: 'RAJENDRA AGRA FARERL M' },
+      { id: 26, nama: 'REYVAN YOAN GISAVANA' },
+      { id: 27, nama: 'RIYO PRADANA NAVIGASI F' },
+      { id: 28, nama: 'RUNA AULIA SUCI N' },
+      { id: 29, nama: 'SAHARTIAN IRMA RAHMARANI' },
+      { id: 30, nama: 'SAMUEL YUDI PRAYITNO' },
+      { id: 31, nama: 'SHIFA NURKHOLIS AZIZ' },
+      { id: 32, nama: 'SHOFIYYAH AMALILLIA NAFIAH' },
+      { id: 33, nama: 'THORIQ MUHAMMAD HANIF R' },
+      { id: 34, nama: 'WIDYA PUJI ASTUTI' },
+      { id: 35, nama: 'YUSUF MUHAMMAD FARREL' },
+      { id: 36, nama: 'ZASKIA AYU INAYAH' },
+    ];
+  
+    const [currentPage, setCurrentPage] = useState(1);
+    const dataPerPage = 6;
+    const totalV = 31;
+    const totalPages = Math.ceil(data.length / dataPerPage);
+    const indexOfLastData = currentPage * dataPerPage;
+    const indexOfFirstData = indexOfLastData - dataPerPage;
+    const currentData = data.slice(indexOfFirstData, indexOfLastData);
+  
+    const paginate = (pageNumber) => {
+      if (pageNumber === -1) {
+        setCurrentPage((prevPage) => prevPage - 1);
+      } else if (pageNumber === +1) {
+        setCurrentPage((prevPage) => prevPage + 1);
       } else {
-        swal("Data kelas dipulihkan!");
+        setCurrentPage(pageNumber);
       }
-    });
-  };
+    };
+  
+  
 
   return (
     <div class="min-h-screen flex flex-col flex-auto flex-shrink-0 antialiased bg-white dark:bg-gray-700 text-black dark:text-white">
@@ -117,55 +142,95 @@ const RekapGuru = () => {
       </div>
         <div>
         
-        <div class="p-4 gap-4">
-          <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
-            <div class="rounded-t mb-0 px-0 border-0">
-              <div class="flex flex-wrap items-center px-4 py-2">
-                <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
-                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Pilih Kelas</h3>
-                  <a href="/createKelas" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+        <div class="grid p-4 gap-4">
+            <div class="relative flex flex-col min-w-0 mb-4 lg:mb-0 break-words bg-gray-50 dark:bg-gray-800 w-full shadow-lg rounded">
+                <div class="rounded-t mb-0 px-0 border-0">
+                <div class="flex flex-wrap items-center px-4 py-2">
+                    <div class="relative w-full max-w-full flex-grow flex-1">
+                    <h3 class="text-xl text-white mb-3 mt-2">Januari</h3>
+                    </div>
                 </div>
-                
-              </div>
-              <div class="block w-full overflow-x-auto">
-              <table class="items-center w-full bg-transparent border-collapse">
-                  <thead>
-                    <tr>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">No</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Kelas</th>
-                      {/* <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">TTL</th> */}
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Jurusan</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Jumlah Murid</th>
-                      <th class="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                  {
-                    DataKelas.map((kelas, index)=>(
-                      <tr key={kelas.id} class="text-gray-700 dark:text-gray-100">
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left">{index+1}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{kelas.kelas}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{kelas.jurusan}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{kelas.jumlah}</td>
-                        <td class="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                          {/* <div class="flex items-center">
-                            <div class="relative w-full">
-                              <Link to={`/rekap/${kelas.id}`} className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Lihat Rekap</Link>
-                              <Link to={`/editKelas/${kelas.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
-                              <button className="btn btn-outline btn-error btn-sm mr-2" onClick={() => handleDelete(kelas.id)}>Hapus</button>
-                            </div>
-                          </div> */}
-                        </td>
-                    </tr>
-                    ))}
-                    
-                  </tbody>
-                </table>
-              </div>
-            </div>
+ <div className="block w-full overflow-x-auto"> 
+ <table className="items-center w-full bg-transparent border-collapse">
+        <thead>
+          <tr>
+            <th className="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">No</th>
+            <th className="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left">Nama</th>
+            {Array.from({ length: totalV }, (_, index) => (
+              <th key={index} className="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">{index + 1}</th>
+            ))}
+            <th className="px-4 bg-gray-100 dark:bg-gray-600 text-gray-500 dark:text-gray-100 align-middle border border-solid border-gray-200 dark:border-gray-500 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {currentData.map((item, index) => (
+            <tr key={index}>
+              <td>{indexOfFirstData + index + 1}</td>
+              <td>{item.nama}</td>
+              {Array.from({ length: totalV }, (_, vIndex) => (
+                <td key={vIndex} className="border-t-0 px-4 py-2">v</td>
+              ))}
+              <td className="border-t-0 px-4 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                <div className="flex items-center">
+                  <div className="relative w-full">
+                    <Link to="#" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Lihat Rekap</Link>
+                    <Link to="#" className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
+                    <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => deleteKelas(kelas.id)}>Hapus</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+  
+        {/* Pagination */}
+            <div className="join flex justify-center mt-4 ">
+            <nav className="block bg-gray-200">
+            <ul className="flex pl-0 rounded list-none flex-wrap">
+              <li>
+                <button
+                  className={`dark:bg-gray-600 text-black hover:bg-gray-300 hover:text-gray-900 px-3 py-2 rounded-l-md ${
+                    currentPage === -1 ? 'btn-disabled' : ''
+                  }`}
+                  onClick={() => paginate(-1)}
+                  disabled={currentPage === -1}
+                >
+                  Prev
+                </button>
+              </li>
+              {[1, 2, 3].map((pageNumber) => (
+                <li key={pageNumber}>
+                  <button
+                    className={`dark:bg-gray-600 text-black hover:bg-gray-300 hover:text-gray-900 px-3 py-2 ${
+                      currentPage === pageNumber ? 'btn-disabled' : ''
+                    }`}
+                    onClick={() => paginate(pageNumber)}
+                    disabled={currentPage === pageNumber}
+                  >
+                    {pageNumber}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <button
+                  className={`dark:bg-gray-600 text-black hover:bg-gray-300 hover:text-gray-900 px-3 py-2 rounded-l-md ${
+                    currentPage === totalPages ? 'btn-disabled' : ''
+                  }`}
+                  onClick={() => paginate(+1)}
+                  disabled={currentPage === totalPages}
+                >
+                  Next
+                </button>
+              </li>
+            </ul>
+          </nav>
           </div>
-        </div>
+      </div>
+                </div>
+               
+            </div>
+            </div>
         </div>
 
         </div>
@@ -176,4 +241,4 @@ const RekapGuru = () => {
 
 };
 
-export default RekapGuru;
+export default GuruRekap;

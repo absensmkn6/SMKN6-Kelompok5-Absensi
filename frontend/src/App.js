@@ -29,6 +29,7 @@ import GuruDetail from "./pages/DetailGuru";
 import EditGuru from "./pages/EditGuru";
 import EditKelas from "./pages/EditKelas";
 import GuruRekap from "./pages/GuruRekapKelas";
+import RekapGuru from "./pages/GuruRekapKelas";
 
 
 function App(){
@@ -88,7 +89,7 @@ function App(){
         <Route component={DetailUser} path="/detail/user/:id" />
         <Route component={GuruDetail} path="/detail/guru/:id" />
         <Route component={SiswaDetail} path="/detail/siswa/:nis" />
-        <Route component={GuruRekap} path="/guru/rekap" />
+        <Route component={RekapGuru} path="/guru/rekap" />
         <Route path="*" component={<div>Page Not Found</div>}/>
         
 
