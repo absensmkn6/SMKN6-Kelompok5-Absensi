@@ -58,6 +58,7 @@ import Guru from "./pages/DataGuru";
 import AddGuru from "./pages/AddGuru";
 import GuruDetail from "./pages/DetailGuru";
 import EditGuru from "./pages/EditGuru";
+import EditKelas from "./pages/EditKelas";
 
 
 function App(){
@@ -110,6 +111,7 @@ function App(){
         <Route component={EditSiswa} path="/edit/siswa/:nis" />
         <Route component={EditUser} path="/edit/user/:id" />
         <Route component={EditGuru} path="/edit/guru/:id" />
+        <Route component={EditKelas} path="/edit/kelas/:id" />
         <Route component={Profile} path="/siswa/profile" />
         <Route component={Rekap} path="/admin/kelas" />
         <Route component={Absen} path="/siswa/absen" />

@@ -165,6 +165,7 @@ const handleSubmit = async (e) => {
                                 <option  selected>Pilih Role</option>
                                     <option value="admin">Admin</option>
                                     <option value="siswa">Siswa</option>
+                                    <option value="guru">Guru</option>
                                 </select>
                             </div>
                             <div class="form-group">

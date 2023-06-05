@@ -123,7 +123,7 @@ const RekapAdmin = () => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Pilih Kelas</h3>
-                  <a href="/createKelas" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+                  <a href="/create/kelas" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
                 </div>
                 
               </div>
@@ -152,7 +152,7 @@ const RekapAdmin = () => {
                           <div class="flex items-center">
                             <div class="relative w-full">
                               <Link to={`/rekap/${kelas.id}`} className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Lihat Rekap</Link>
-                              <Link to={`/editKelas/${kelas.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
+                              <Link to={`/edit/kelas/${kelas.id}`} className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
                               <button className="btn btn-outline btn-error btn-sm mr-2" onClick={() => handleDelete(kelas.id)}>Hapus</button>
                             </div>
                           </div>
