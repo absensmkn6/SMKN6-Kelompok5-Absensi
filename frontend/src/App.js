@@ -58,7 +58,6 @@ import Guru from "./pages/DataGuru";
 import AddGuru from "./pages/AddGuru";
 import GuruDetail from "./pages/DetailGuru";
 import EditGuru from "./pages/EditGuru";
-import EditKelas from "./pages/EditKelas";
 
 
 function App(){
