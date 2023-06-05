@@ -10,6 +10,7 @@ const Siswa = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { isError } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
     dispatch(getMe());
@@ -30,6 +31,7 @@ const Siswa = () => {
 >
     <Layout>
       <DataSiswa />
+
     </Layout>
     </motion.div>
   );

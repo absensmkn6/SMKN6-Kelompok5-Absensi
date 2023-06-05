@@ -1,41 +1,10 @@
 import Login from "./login/Login";
-// import Dashboard from "./dashboard/dashboard";
 import Home from "./home/home";
 import { BrowserRouter, Switch, Route, NavLink, Redirect, Link } from "react-router-dom"; 
 import Register from "./login/Register";
-// import Sidebar from "./sidebar/sidebarsiswa";
-
-//SIDEBAR
-// import SidebarGuru from "./sidebar/sidebarguru";
-// import SidebarSiswa from "./sidebar/sidebarsiswa";
-// import SidebarAdmin from "./sidebar/sidebaradmin";
-
-
-// // SISWA
-// import DashboardSiswa from "./siswa/dashboard"
-// import ProfileSiswa from "./siswa/profile"
-// import AbsenSiswa from "./siswa/absen"
 import LogoutSiswa from "./siswa/logout"
 
-//GURU
-// import RekapGuru from "./guru/rekapguru"
-// import ProfileGuru from "./guru/profile"
-// import DashboardGuru from "./guru/dashboard"
-// import LogoutGuru from "./guru/logout"
-
-//ADMIN
-// import DataSiswa from "./admin/data/siswa";
-// import DataKelas from "./admin/data/kelas";
-// import DataGuru from "./admin/data/guru";
-// import RekapAdmin from "./admin/rekap";
 import Logout from "./admin/logout";
-// import CreateSiswa from "./admin/data/siswa/create";
-// import UpdateSiswa from "./admin/data/siswa/update";
-// import CreateKelas from "./admin/data/kelas/create";
-// import UpdateKelas from "./admin/data/kelas/update";
-// import CreateGuru from "./admin/data/guru/create";
-// import UpdateGuru from "./admin/data/guru/update";
-// import DataUser from "./admin/data/user";
 import Dashboard from "./pages/Dashboard";
 import AddSiswa from "./pages/AddSiswa";
 import Siswa from "./pages/DataSiswa";
@@ -58,6 +27,8 @@ import Guru from "./pages/DataGuru";
 import AddGuru from "./pages/AddGuru";
 import GuruDetail from "./pages/DetailGuru";
 import EditGuru from "./pages/EditGuru";
+import EditKelas from "./pages/EditKelas";
+import GuruRekap from "./pages/GuruRekapKelas";
 
 
 function App(){
@@ -117,7 +88,8 @@ function App(){
         <Route component={DetailUser} path="/detail/user/:id" />
         <Route component={GuruDetail} path="/detail/guru/:id" />
         <Route component={SiswaDetail} path="/detail/siswa/:nis" />
-        
+        <Route component={GuruRekap} path="/guru/rekap" />
+        <Route path="*" component={<div>Page Not Found</div>}/>
         
 
         </Switch>

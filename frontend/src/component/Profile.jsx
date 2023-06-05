@@ -9,6 +9,7 @@ import { LogOut, reset } from "../features/authSlices";
 
 const ProfileSiswa = () => {
 
+    
     const dispatch = useDispatch();
     const history = useHistory();
     const { user } = useSelector((state) => state.auth);
