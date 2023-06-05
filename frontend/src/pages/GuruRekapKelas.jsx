@@ -3,11 +3,11 @@ import Layout from "./Layout";
 import { getMe } from "../features/authSlices";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useDispatch, useSelector } from "react-redux";
-import RekapAdmin from "../component/Rekap";
+import RekapGuru from "../component/RekapGuru";
 import { motion } from "framer-motion";
 
 
-const Rekap = () => {
+const GuruRekap = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { isError } = useSelector((state) => state.auth);
@@ -32,10 +32,10 @@ const Rekap = () => {
           transition={{  duration: 2 }}
       >
     <Layout>
-      <RekapAdmin/>
+      <RekapGuru/>
     </Layout>
     </motion.div>
   );
 };
 
-export default Rekap;
+export default GuruRekap;
