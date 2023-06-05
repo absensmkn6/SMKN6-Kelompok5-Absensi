@@ -116,6 +116,7 @@ const Sidebar = () => {
                   <label tabIndex={0} className="ml-4">Data<label></label></label>
                     <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                           <li><Link to="/admin/siswa" className="text-black dark:text-white">Data Siswa</Link></li>
+                          <li><Link to="/admin/guru" className="text-black dark:text-white">Data Guru</Link></li>
                           {/* <li><Link to="/admin/kelas">Data Kelas</Link></li>
                           <li><Link to="/admin/guru">Data Guru</Link></li> */}
                           <li><Link to="/admin/user"  className="text-black dark:text-white">Data User</Link></li>

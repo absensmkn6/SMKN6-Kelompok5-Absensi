@@ -476,6 +476,8 @@ const Welcome = () => {
         </div>
     )}
     </div>
+
+    {/* DASHBOARD GURU */}
     </motion.div>
     </>
 

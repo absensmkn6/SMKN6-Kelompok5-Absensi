@@ -5,16 +5,16 @@ import { verifyUser, adminOnly } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-// router.get('/kelas',verifyUser, adminOnly, getKelas);
-// router.get('/kelas/:kode_kelas',verifyUser, adminOnly, getKelasByKodeKelas);
-// router.post('/kelas',verifyUser, adminOnly, createKelas);
-// router.patch('/kelas/:kode_kelas',verifyUser, adminOnly, UpdateKelas);
-// router.delete('/kelas/:kode_kelas',verifyUser, adminOnly, DeleteKelas);
+router.get('/kelas',verifyUser, adminOnly, getKelas);
+router.get('/kelas/:id',verifyUser, adminOnly, getKelasById);
+router.post('/kelas',verifyUser, adminOnly, createKelas);
+router.patch('/kelas/:id',verifyUser, adminOnly, UpdateKelas);
+router.delete('/kelas/:id',verifyUser, adminOnly, DeleteKelas);
 
-router.get('/kelas', getKelas);
-router.get('/kelas/:id', getKelasById);
-router.post('/kelas',createKelas);
-router.patch('/kelas/:id', UpdateKelas);
-router.delete('/kelas/:id', DeleteKelas);
+// router.get('/kelas', getKelas);
+// router.get('/kelas/:id', getKelasById);
+// router.post('/kelas',createKelas);
+// router.patch('/kelas/:id', UpdateKelas);
+// router.delete('/kelas/:id', DeleteKelas);
 
 export default router;

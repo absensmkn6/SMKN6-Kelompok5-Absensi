@@ -9,10 +9,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 
-const DetailSiswa = () => {
-
-
-    const {nis} = useParams();
+const DetailGuru = () => {
+    
+    const {id} = useParams();
     const [nama, setnama] = useState('')
     const [kelas, setkelas] = useState('')
     const [alamat, setalamat] = useState('')
@@ -22,17 +21,17 @@ const DetailSiswa = () => {
     // const [ttl, setttl] = useState('')
     
     useEffect(()=>{
-      getSiswaByNis();
+      getGuruById();
     }, []);
     
     const handleSubmit = async (e) => {
       e.preventDefault();
       try{
-        await axios.patch(`http://localhost:5000/siswa/${nis}`, {
+        await axios.patch(`http://localhost:5000/guru/${id}`, {
           nama, kelas, jurusan,  alamat, gender, nohp
         });
     
-        history.push('/admin/siswa');
+        history.push('/admin/guru');
      
       } catch (error) {
         console.log(error);
@@ -40,8 +39,8 @@ const DetailSiswa = () => {
     
     };
     
-    const getSiswaByNis = async () => {
-        const response = await axios.get(`http://localhost:5000/siswa/${nis}`);
+    const getGuruById = async () => {
+        const response = await axios.get(`http://localhost:5000/guru/${id}`);
         setnama(response.data.nama);
         setkelas(response.data.kelas);
         setjurusan(response.data.jurusan);
@@ -106,7 +105,7 @@ const DetailSiswa = () => {
         <div class="rounded-t mb-0 px-0 border-0">
           <div class="flex flex-wrap items-center px-4 py-2">
             <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
-              <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Detail Data User</h3>
+              <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Detail Data Guru</h3>
             </div>
             
           </div>
@@ -115,8 +114,8 @@ const DetailSiswa = () => {
           <form>
                     <div class="card-body">
                         <div class="form-group">
-                            <label>NIS</label><br></br>
-                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={nis} readOnly />
+                            <label>ID</label><br></br>
+                            <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={id} readOnly />
                         </div>
                         <div class="form-group">
                             <label>Nama</label><br></br>
@@ -143,7 +142,7 @@ const DetailSiswa = () => {
                     </div>
 
                 <div class="card-footer ml-10">
-                    <Link to="/admin/siswa" className="btn btn-primary btn-sm ml-5 mb-5 ">Oke</Link>
+                    <Link to="/admin/guru" className="btn btn-primary btn-sm ml-5 mb-5 ">Oke</Link>
                 </div>
             </form>
           </div>
@@ -158,4 +157,4 @@ const DetailSiswa = () => {
   )
 }
 
-export default DetailSiswa
+export default DetailGuru

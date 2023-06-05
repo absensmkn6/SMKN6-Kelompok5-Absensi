@@ -11,29 +11,28 @@ import Sidebar from "./Sidebar";
 
 
 
-const UpdateSiswa = () => {
+const UpdateGuru = () => {
 
-const {nis} = useParams();
+    const {id} = useParams();
 const [nama, setnama] = useState('')
 const [kelas, setkelas] = useState('')
 const [alamat, setalamat] = useState('')
 const [nohp, setnohp] = useState('')
 const [jurusan, setjurusan] = useState('')
 const [gender, setgender] = useState('')
-// const [ttl, setttl] = useState('')
 
 useEffect(()=>{
-  getSiswaByNis();
+  getGuruById();
 }, []);
 
 const handleSubmit = async (e) => {
   e.preventDefault();
   try{
-    await axios.patch(`http://localhost:5000/siswa/${nis}`, {
+    await axios.patch(`http://localhost:5000/guru/${id}`, {
       nama, kelas, jurusan,  alamat, gender, nohp
     });
 
-    history.push('/admin/siswa');
+    history.push('/admin/guru');
  
   } catch (error) {
     console.log(error);
@@ -41,8 +40,8 @@ const handleSubmit = async (e) => {
 
 };
 
-const getSiswaByNis = async () => {
-    const response = await axios.get(`http://localhost:5000/siswa/${nis}`);
+const getGuruById = async () => {
+    const response = await axios.get(`http://localhost:5000/guru/${id}`);
     setnama(response.data.nama);
     setkelas(response.data.kelas);
     setjurusan(response.data.jurusan);
@@ -162,7 +161,7 @@ const history = useHistory();
             <div class="rounded-t mb-0 px-0 border-0">
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
-                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Update Data Siswa</h3>
+                  <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Update Data Guru</h3>
                 </div>
                 
               </div>
@@ -171,8 +170,8 @@ const history = useHistory();
               <form onSubmit={handleSubmit}>
                         <div class="card-body">
                             <div class="form-group">
-                                <label>NIS</label><br></br>
-                                <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={nis} name="nis" disabled/>
+                                <label>ID</label><br></br>
+                                <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" value={id} name="nis" disabled/>
                             </div>
                             <div class="form-group">
                                 <label>Nama</label><br></br>
@@ -209,7 +208,7 @@ const history = useHistory();
                                     
                             </div>
                             <div class="form-group">
-                                    <label>No.Telp</label><br></br>
+                                    <label>No Handphone</label><br></br>
                                     <input type="number" className="input input-bordered mt-2 input-primary w-full max-w" placeholder="Masukkan No.Telp" value={nohp}  onChange={e => setnohp(e.target.value)} />
                                 </div>
                             {/* <div class="form-group">
@@ -251,4 +250,4 @@ const history = useHistory();
     )
 }
 
-export default UpdateSiswa
+export default UpdateGuru

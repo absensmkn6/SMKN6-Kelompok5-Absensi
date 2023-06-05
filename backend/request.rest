@@ -29,6 +29,39 @@ Content-Type: application/json
 ###
 DELETE  http://localhost:5000/siswa/1001
 
+#Guru
+###
+GET http://localhost:5000/guru
+###
+GET http://localhost:5000/guru/1
+###
+POST http://localhost:5000/guru
+Content-Type: application/json
+
+{
+    "nama": "Binar",
+    "kelas": "XI",
+    "jurusan": "RPL",
+    "alamat": "Surakarta",
+    "gender": "L",
+    "nohp": "081"
+}
+###
+PATCH  http://localhost:5000/guru/1
+Content-Type: application/json
+
+{
+    "nama": "Binar Aris",
+    "kelas": "XI",
+    "jurusan": "RPL",
+    "gender": "L",
+    "alamat": "Surakarta",
+    "nohp": "081"
+}
+####
+DELETE http://localhost:5000/guru/1
+
+
 # KELAS
 ###
 GET http://localhost:5000/kelas
