@@ -30,6 +30,7 @@ import EditGuru from "./pages/EditGuru";
 import EditKelas from "./pages/EditKelas";
 import GuruRekap from "./pages/GuruRekapKelas";
 import RekapGuru from "./pages/GuruRekapKelas";
+import NotFound from "./pages/NotFound";
 
 
 function App(){
@@ -90,7 +91,12 @@ function App(){
         <Route component={GuruDetail} path="/detail/guru/:id" />
         <Route component={SiswaDetail} path="/detail/siswa/:nis" />
         <Route component={RekapGuru} path="/guru/rekap" />
-        <Route path="*" component={<div>Page Not Found</div>}/>
+        {/* <Route path="*" component={<div>Page Not Found</div>}/> */}
+
+
+        <Redirect to="/login"/>
+
+        <Route component={NotFound}/>
         
 
         </Switch>

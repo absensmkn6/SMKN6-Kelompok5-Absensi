@@ -116,11 +116,13 @@ const Register = () => {
                   id='tanggal_lahir'
                   placeholder='Tanggal Lahir' onChange={e => settgl(e.target.value)}/>
 
+
+                  {/* <input type='hidden' value="siswa" onChange={e => setrole(e.target.value)} /> */}
                   <select
                   className="p-2 rounded-xl border"
                   name="role"
                   id='role'
-                  placeholder="Jenis Kelamin" value={role} onChange={e => setrole(e.target.value)}>
+                  placeholder="" value={role} onChange={e => setrole(e.target.value)}>
                     <option selected>Role</option>
                     <option value="siswa">Siswa</option>
                   </select>

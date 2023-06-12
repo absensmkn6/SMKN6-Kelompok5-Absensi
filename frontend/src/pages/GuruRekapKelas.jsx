@@ -33,6 +33,7 @@ const RekapGuru = () => {
       >
     <Layout>
       <GuruRekap/>
+      {/* {console.log(user && user.nama)} */}
     </Layout>
     </motion.div>
   );

@@ -175,7 +175,7 @@ const GuruRekap = () => {
                   <div className="relative w-full">
                     <Link to="#" className="btn btn-outline btn-info btn-sm mr-2" htmlFor="modalDetail">Lihat Rekap</Link>
                     <Link to="#" className="btn btn-outline btn-warning btn-sm mr-2">Edit</Link>
-                    <button className="btn btn-outline btn-error btn-sm mr-2" onClick={e => deleteKelas(kelas.id)}>Hapus</button>
+                    <button className="btn btn-outline btn-error btn-sm mr-2" >Hapus</button>
                   </div>
                 </div>
               </td>

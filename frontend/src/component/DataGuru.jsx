@@ -133,7 +133,7 @@ const handleDelete = (id) => {
               <div class="flex flex-wrap items-center px-4 py-2">
                 <div class="relative w-full max-w-full flex items-center grid grid-cols-6 gap-4">
                   <h3 class="font-semibold text-base text-gray-900 dark:text-gray-50 col-start-1 col-end-3">Data guru</h3>
-                  <a href="/create/guru" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ Tambah Data</a>
+                  <a href="/create/guru" htmlFor="modalTambah" className="btn btn-primary btn-sm mr-2 col-end-7 " >+ ADD</a>
                 </div>
                 
               </div>
